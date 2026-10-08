@@ -59,7 +59,7 @@ CONFIG_BT_NIMBLE_MEM_ALLOC_MODE_EXTERNAL=y
 CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y
 CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT=y
 CONFIG_SECURE_SIGNED_ON_UPDATE_NO_SECURE_BOOT=y
-# 빌드할 때 RSA-3072 키로 서명한다. 키는 ../certificates/ (Git으로 관리, 사용자 결정 2026-10-02)
+# 빌드할 때 RSA-3072 키로 서명한다. 키는 ../certificates/ (Git에 넣지 않음, 책 1.4.9절)
 # 키가 없으면 빌드가 실패한다.
 CONFIG_SECURE_BOOT_BUILD_SIGNED_BINARIES=y
 CONFIG_SECURE_BOOT_SIGNING_KEY="../certificates/ota_signing_key.pem"

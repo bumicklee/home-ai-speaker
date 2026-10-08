@@ -786,7 +786,7 @@ CONFIG_BT_NIMBLE_MEM_ALLOC_MODE_EXTERNAL=y
 CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE=y
 CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT=y
 CONFIG_SECURE_SIGNED_ON_UPDATE_NO_SECURE_BOOT=y
-# 빌드할 때 RSA-3072(Secure Boot V2 형식) 키로 서명. 키는 certificates/ (Git으로 관리)
+# 빌드할 때 RSA-3072(Secure Boot V2 형식) 키로 서명. 키는 certificates/ (Git에 넣지 않음, 책 1.4.9절)
 CONFIG_SECURE_BOOT_BUILD_SIGNED_BINARIES=y
 CONFIG_SECURE_BOOT_SIGNING_KEY="../certificates/ota_signing_key.pem"
 CONFIG_HTTPD_WS_SUPPORT=y
@@ -806,8 +806,8 @@ CONFIG_ESP_CONSOLE_SECONDARY_USB_SERIAL_JTAG=y
 위험: 평문 LAN에서 토큰만으로 펌웨어를 바꿀 수 있으면, 토큰을 엿본 사람이 비밀값을 읽는 펌웨어를 심을 수 있다(비밀값이 평문 NVS). 그래서 다음 세 겹으로 막는다.
 
 1. **서명된 펌웨어만 받는다.** `CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT=y` + `CONFIG_SECURE_SIGNED_ON_UPDATE_NO_SECURE_BOOT=y`. 하드웨어 Secure Boot가 아니라서 **eFuse를 쓰지 않는다.** 빌드할 때 개발자가 가진 서명 키로 서명하고, 기기는 OTA 때 서명을 검증한다.
-   - 서명 키: `certificates/ota_signing_key.pem` (저장소 최상위, 권한 600). **사용자 결정으로 Git으로 관리한다(2026-10-02).** 저장소를 공유·공개하면 키도 함께 퍼지므로, 원격 저장소는 비공개로 두고 접근 권한을 좁힌다. 2026-10-02 `espsecure.py generate_signing_key --version 2 --scheme rsa3072`로 생성.
-   - 서명 키를 잃어버리면 OTA로는 업데이트할 수 없다(USB로 플래시하면 된다). 키는 Git 외에 별도로도 백업한다.
+   - 서명 키: `certificates/ota_signing_key.pem` (저장소 최상위, 권한 600). **Git에 넣지 않는다**(`.gitignore`). 저장소를 공유·공개하면 키도 함께 퍼지기 때문이다. `espsecure.py generate_signing_key --version 2 --scheme rsa3072`로 만든다(책 1.4.9절).
+   - 서명 키를 잃어버리면 OTA로는 업데이트할 수 없다(USB로 플래시하면 된다). 키는 암호 관리자 같은 Git 밖의 안전한 곳에 백업한다.
 2. **물리 버튼 확인.** 업로드를 시작하면 기기가 LED로 Key2를 깜빡이고, 60초 안에 Key2를 눌러야 쓰기를 시작한다. 누르지 않으면 403.
 3. **상태 확인.** 대화 중이면 409. 이미지 크기가 OTA 슬롯(4MB)을 넘으면 413. 헤더의 프로젝트 이름·칩 종류가 다르면 거부.
 
