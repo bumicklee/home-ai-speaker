@@ -1,0 +1,82 @@
+{
+  "@@locale": "en",
+  "asstTitle": "Assistant",
+  "asstName": "Name",
+  "asstNameHint": "The wake word stays the same",
+  "asstLanguage": "Speaking language",
+  "asstLanguageKo": "한국어",
+  "asstLanguageEn": "English",
+  "asstLanguageHint": "The language the speaker talks in. Change the app language on the System screen.",
+  "asstVoice": "Voice",
+  "asstVoiceNextTime": "Changes from the next conversation",
+  "asstPurpose": "Role",
+  "asstPurposeHint": "Describe the assistant's role or tone",
+  "asstUnits": "Units",
+  "asstUnitsMetric": "Metric (°C, km)",
+  "asstUnitsImperial": "Imperial (°F, mi)",
+  "asstPlace": "Home area",
+  "asstPlaceBody": "Used for weather and nearby searches. Only the area name is saved on the speaker, never coordinates.",
+  "asstPlaceField": "Area",
+  "asstPlaceExample": "e.g. Gangnam-gu, Seoul",
+  "asstUseCurrentLocation": "Use current location",
+  "asstTimezone": "Time zone",
+  "asstLocationFilled": "Area and time zone filled in. Tap Save",
+  "asstLocationFilledOnlyPlace": "Area filled in. Pick a time zone",
+  "asstTimezoneUnsupported": "The speaker doesn't know your phone's time zone ({tz}). Pick the closest one.",
+  "@asstTimezoneUnsupported": {
+    "placeholders": {
+      "tz": {
+        "type": "String"
+      }
+    }
+  },
+  "asstTimezoneUnknown": "Couldn't read the phone's time zone. Pick the closest one.",
+  "asstTimezoneMore": "Other time zones",
+  "asstLocationServiceOff": "Location is turned off on this phone",
+  "asstLocationDenied": "No location permission. Type the area instead",
+  "asstLocationDeniedForever": "Location permission is off. Turn it on in Settings or type the area",
+  "asstOpenSettings": "Settings",
+  "asstLocationUnavailable": "Couldn't find your location. Type the area instead",
+  "asstWebSearch": "Web search (weather, news)",
+  "asstDeviceControls": "Device controls (volume, radio, memory)",
+  "asstAutoMemory": "Remember things learned in conversation",
+  "asstMemories": "Memories",
+  "asstMemoryCount": "{count}",
+  "@asstMemoryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "asstSave": "Save",
+  "asstSaved": "Saved",
+  "asstDiscardTitle": "Leave without saving?",
+  "asstDiscardBody": "Your changes will be lost.",
+  "asstDiscard": "Leave",
+  "asstNameEmpty": "Enter a name",
+  "asstTooLong": "Too long (max {max} bytes)",
+  "@asstTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "asstBytes": "{used}/{max} bytes",
+  "@asstBytes": {
+    "placeholders": {
+      "used": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "asstMemoriesNotice": "What the assistant remembers. Deleted items are forgotten from the next conversation.",
+  "asstMemoriesEmpty": "Nothing remembered yet",
+  "asstForget": "Delete",
+  "asstForgetTitle": "Delete this memory?",
+  "asstForgotten": "Deleted"
+}

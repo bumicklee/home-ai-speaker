@@ -1,0 +1,17 @@
+# 앱 아이콘 (디자인 "앱 아이콘"). 이미지는 tool/gen_brand_assets.py가 만든다
+# 적용: dart run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/brand/icon.png"
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  min_sdk_android: 24
+  adaptive_icon_background: "#0B6E6D"
+  adaptive_icon_foreground: "assets/brand/icon_foreground.png"
+  adaptive_icon_monochrome: "assets/brand/icon_monochrome.png"
+  web:
+    generate: false
+  windows:
+    generate: false
+  macos:
+    generate: false

@@ -1,0 +1,172 @@
+{
+  "sysTitle": "System",
+  "sysFirmware": "Firmware",
+  "sysUptime": "Uptime",
+  "sysWifi": "Wi-Fi signal",
+  "sysWifiGood": "Good ({dbm} dBm)",
+  "@sysWifiGood": {
+    "placeholders": {
+      "dbm": {
+        "type": "int"
+      }
+    }
+  },
+  "sysWifiFair": "Fair ({dbm} dBm)",
+  "@sysWifiFair": {
+    "placeholders": {
+      "dbm": {
+        "type": "int"
+      }
+    }
+  },
+  "sysWifiWeak": "Weak ({dbm} dBm)",
+  "@sysWifiWeak": {
+    "placeholders": {
+      "dbm": {
+        "type": "int"
+      }
+    }
+  },
+  "sysWifiNone": "Not connected",
+  "sysIp": "IP address",
+  "sysUptimeDays": "{days} d {hours} h",
+  "@sysUptimeDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "sysUptimeHours": "{hours} h {minutes} min",
+  "@sysUptimeHours": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "sysUptimeMinutes": "{minutes} min",
+  "@sysUptimeMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "sysPhonesTitle": "Registered phones ({count} / {max})",
+  "@sysPhonesTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "sysPhoneSelf": "This phone",
+  "sysPhoneCreated": "Added {date}",
+  "@sysPhoneCreated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "sysPhoneRevoke": "Revoke",
+  "sysPhoneRevokeTitle": "Revoke {name}?",
+  "@sysPhoneRevokeTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sysPhoneRevokeBody": "That phone can no longer control the speaker. It has to register again to use it.",
+  "sysPhoneRevoked": "Phone revoked",
+  "sysPhonesFailed": "Couldn't load the phone list",
+  "sysMenuKeys": "Keys",
+  "sysMenuKeysHint": "OpenAI key, Telegram bot token",
+  "sysMenuApp": "App settings",
+  "sysMenuAppHint": "Theme, language",
+  "sysDiagnostics": "Diagnostics",
+  "sysBuildDate": "Build",
+  "sysResetReason": "Last start reason",
+  "sysResetPowerOn": "Power on",
+  "sysResetSoftware": "Restart",
+  "sysResetCrash": "Restarted after an error",
+  "sysResetWatchdog": "Restarted after a hang",
+  "sysResetBrownout": "Low power",
+  "sysResetOther": "Other ({code})",
+  "@sysResetOther": {
+    "placeholders": {
+      "code": {
+        "type": "int"
+      }
+    }
+  },
+  "sysHeapFree": "Internal RAM free",
+  "sysHeapMin": "Internal RAM lowest",
+  "sysPsramFree": "PSRAM free",
+  "sysKb": "{value} KB",
+  "@sysKb": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "sysFailures": "Recent failures",
+  "sysNoFailures": "None",
+  "sysReboot": "Restart speaker",
+  "sysRebootTitle": "Restart the speaker?",
+  "sysRebootBody": "Playback stops and it reconnects in about 30 seconds.",
+  "sysRebootAction": "Restart",
+  "sysRebooting": "Restarting…",
+  "sysFactoryResetTitle": "Factory reset",
+  "sysFactoryResetBody": " is done on the speaker. Hold the middle button for 10 seconds to erase all settings and registrations.",
+  "sysForget": "Remove speaker from this phone",
+  "sysForgetTitle": "Remove this speaker from this phone?",
+  "sysForgetBody": "If the speaker is reachable, this phone's registration is revoked too. Otherwise it stays on the speaker; revoke it from another phone.",
+  "sysForgetAction": "Remove",
+  "sysKeysTitle": "Keys",
+  "sysKeysPhoneSection": "Keys remembered on this phone",
+  "sysKeysPhoneHint": "Filled in when you set up a speaker. Stored encrypted in the phone's secure storage.",
+  "sysKeysSpeakerSection": "Keys on the speaker",
+  "sysKeysSpeakerHint": "Keys are sent over Bluetooth only. Stay near the speaker.",
+  "sysKeyOpenAi": "OpenAI API key",
+  "sysKeyTelegram": "Telegram bot token",
+  "sysKeySaved": "Saved",
+  "sysKeyNotSaved": "Not set",
+  "sysKeyUnknown": "Unknown",
+  "sysKeyForget": "Delete",
+  "sysKeyForgetTitle": "Delete this key from the phone?",
+  "sysKeyForgetBody": "The key on the speaker stays.",
+  "sysKeyReplace": "Replace",
+  "sysKeyAdd": "Add",
+  "sysKeyDelete": "Delete",
+  "sysKeyDeleteTitle": "Delete this key from the speaker?",
+  "sysKeyDeleteBodyOpenAi": "If the speaker uses OpenAI, it can't talk. English lessons also stop working.",
+  "sysKeyDeleteBodyTelegram": "Telegram messages stop arriving.",
+  "sysKeyDeleted": "Deleted from the speaker",
+  "sysKeySend": "Send to speaker",
+  "sysKeySending": "Finding the speaker and sending…",
+  "sysKeySent": "Saved on the speaker",
+  "sysKeyInvalidOpenAi": "Enter a key that starts with sk-",
+  "sysKeyInvalidTelegram": "This is not a 123456789:ABC… token",
+  "sysPaste": "Paste",
+  "sysAppTitle": "App settings",
+  "sysAppHint": "Applies to this phone only.",
+  "sysLanguageSystem": "Use phone language",
+  "sysLanguageKo": "한국어",
+  "sysLanguageEn": "English",
+  "sysKeyGemini": "Gemini API key",
+  "sysKeyDeleteBodyGemini": "If the speaker uses Gemini, it can't talk.",
+  "sysKeyInvalidGemini": "A Gemini key starts with AIza and has only letters, digits, - and _ (check nothing like :wq got pasted at the end)"
+}

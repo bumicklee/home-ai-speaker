@@ -1,0 +1,94 @@
+{
+  "engTitle": "English teacher",
+  "engHomeSubtitle": "Pronunciation · Basic · Everyday · Business · Advanced",
+  "engIntro": "Pick a course and start free-talking in English with the speaker right away. The teacher corrects your phrasing and pronunciation as you talk.",
+  "engCoursePron": "Pronunciation",
+  "engCoursePronDesc": "Talk freely; mispronounced words get pointed out as you go",
+  "engCourseBasic": "Basic conversation",
+  "engCourseBasicDesc": "Easy everyday talk, slowly. Korean help when you get stuck",
+  "engCourseDaily": "Everyday conversation",
+  "engCourseDailyDesc": "Natural talk in situations like travel, restaurants, hospitals",
+  "engCourseBiz": "Business conversation",
+  "engCourseBizDesc": "Meetings, calls and negotiations in a polite tone",
+  "engCourseAdv": "Advanced conversation",
+  "engCourseAdvDesc": "Current affairs and opinions, English only, polished to sound natural",
+  "engLevelAll": "All levels",
+  "engLevelBeginner": "Beginner",
+  "engLevelEasy": "Easy–mid",
+  "engLevelMid": "Intermediate",
+  "engLevelAdvanced": "Advanced",
+  "engExplain": "Explanations",
+  "engExplainKorean": "Mix in Korean",
+  "engExplainEnglish": "English only",
+  "engSpeed": "Speed",
+  "engSpeedSlow": "Slow",
+  "engSpeedNormal": "Normal",
+  "engLength": "Length",
+  "engMinutes": "{minutes} min",
+  "@engMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "engStart": "Start {course} free talk",
+  "@engStart": {
+    "placeholders": {
+      "course": {
+        "type": "String"
+      }
+    }
+  },
+  "engVoiceHint": "Or say: “Alexa, let's study English”",
+  "engCostNote": "Lessons are up to 5 minutes. OpenAI voice charges apply for the lesson time.",
+  "engLessonTitle": "Free talk",
+  "engFreeTalk": "{course} · free talk",
+  "@engFreeTalk": {
+    "placeholders": {
+      "course": {
+        "type": "String"
+      }
+    }
+  },
+  "engRemaining": "{time} left",
+  "@engRemaining": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "engStarting": "Starting the lesson…",
+  "engListening": "Listening",
+  "engListeningBody": "Talk to the speaker in English. Mistakes are fine; the teacher corrects you as you talk.",
+  "engTopic": "Current topic",
+  "engTopicUnknown": "The teacher is picking a topic",
+  "engChangeTopic": "New topic",
+  "engCorrections": "Corrections from your teacher",
+  "engCorrectionsEmpty": "Corrections show up here (about every 45 seconds)",
+  "engPronunciationBadge": "Sound",
+  "engEnd": "End lesson",
+  "engSummarizing": "Summarizing today's lesson…",
+  "engDoneTitle": "Lesson finished",
+  "engDoneMeta": "{course} free talk · {minutes} min",
+  "@engDoneMeta": {
+    "placeholders": {
+      "course": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "engTodayCorrections": "Corrected today",
+  "engNoCorrections": "No corrections today. Well done!",
+  "engPractice": "Words to practice saying",
+  "engNextTopic": "Topic for next time",
+  "engAgain": "Free talk again",
+  "engHome": "Home",
+  "engLastLesson": "Last lesson summary",
+  "engRealtimeNote": "English lessons use the real-time API (OpenAI) · about ₩70 a minute",
+  "engNeedOpenAiKey": "English lessons need an OpenAI key. Add it in Assistant > AI · Conversation mode."
+}

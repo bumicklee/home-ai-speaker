@@ -1,0 +1,139 @@
+{
+  "tgTitle": "텔레그램",
+  "tgConnectTitle": "텔레그램 연결",
+  "tgStep1Title": "봇 만들고 토큰 받기",
+  "tgStep1Body": "BotFather에게 /newbot을 보내 이 스피커 전용 봇을 만들고, 받은 토큰을 복사하세요.",
+  "tgOpenBotFather": "BotFather 열기",
+  "tgStep2Title": "토큰 확인 후 스피커에 저장",
+  "tgTokenLabel": "봇 토큰",
+  "tgTokenShow": "토큰 보기",
+  "tgTokenHide": "토큰 숨기기",
+  "tgCheckToken": "토큰 확인",
+  "tgTokenChecking": "확인하는 중…",
+  "tgTokenValid": "@{bot} 확인됨",
+  "@tgTokenValid": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      }
+    }
+  },
+  "tgTokenSaved": "@{bot} 확인됨 · 스피커에 저장됨",
+  "@tgTokenSaved": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      }
+    }
+  },
+  "tgTokenInvalid": "토큰이 맞지 않아요. BotFather에서 받은 토큰을 그대로 붙여 넣으세요",
+  "tgTokenNetwork": "텔레그램에 연결할 수 없어요. 인터넷 연결을 확인하세요",
+  "tgKey2Body": "토큰은 Wi-Fi가 아니라 Bluetooth로만 스피커에 보내요.",
+  "tgSaveToSpeaker": "스피커에 저장",
+  "tgSaving": "스피커를 찾아 저장하는 중…",
+  "tgStep3Title": "가족 대화방 등록",
+  "tgPairBody": "등록할 대화방(개인 또는 가족 그룹)에서 봇에게 아래처럼 보내세요.",
+  "tgPairGroupHint": "그룹에서는 /pair@{bot} {code}",
+  "@tgPairGroupHint": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "tgPairRemaining": "{min}분 {sec}초 남음 · 한 번만 쓸 수 있어요",
+  "@tgPairRemaining": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "sec": {
+        "type": "int"
+      }
+    }
+  },
+  "tgCopy": "복사",
+  "tgCopied": "복사했어요",
+  "tgOpenTelegram": "텔레그램 열기",
+  "tgOpenFailed": "텔레그램을 열 수 없어요",
+  "tgPairWaiting": "등록을 기다리는 중…",
+  "tgPairExpired": "코드 시간이 지났어요. 새 코드를 받으세요",
+  "tgPairNewCode": "새 코드 받기",
+  "tgPairGetCode": "등록 코드 받기",
+  "tgPairLocked": "토큰을 스피커에 저장하면 코드를 받을 수 있어요",
+  "tgPairNoToken": "스피커에 봇 토큰이 아직 없어요. 토큰을 먼저 저장하세요",
+  "tgPaired": "‘{name}’ 대화방을 등록했어요",
+  "@tgPaired": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDone": "완료",
+  "tgAddAnother": "다른 대화방 등록",
+  "tgAddChatTitle": "대화방 추가",
+  "tgReplaceToken": "토큰 바꾸기",
+  "tgStateOk": "연결됨",
+  "tgStateConnecting": "연결하는 중",
+  "tgStateOff": "연결 안 됨",
+  "tgStateConflict": "다른 곳에서 같은 봇을 쓰고 있어요",
+  "tgStateConflictBody": "다른 프로그램이 같은 봇을 쓰면 스피커가 메시지를 받지 못해요. 이 스피커 전용 봇을 만들어 토큰을 바꾸세요.",
+  "tgStateTokenInvalid": "토큰이 맞지 않아요",
+  "tgStateTokenInvalidBody": "봇 토큰이 바뀌었거나 지워졌어요. 새 토큰으로 바꾸세요.",
+  "tgUnread": "읽지 않은 메시지 {count}",
+  "@tgUnread": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tgChatsTitle": "등록된 대화방",
+  "tgAddChat": "+ 추가",
+  "tgChatsEmpty": "아직 등록한 대화방이 없어요. ‘+ 추가’를 눌러 가족 대화방을 등록하세요.",
+  "tgChatsHint": "“엄마한테 늦는다고 보내 줘”처럼 별칭으로 불러요.",
+  "tgChatPrivate": "개인 대화",
+  "tgChatGroup": "그룹",
+  "tgChatChannel": "채널",
+  "tgRenameLabel": "{alias} 별칭 바꾸기",
+  "@tgRenameLabel": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDeleteLabel": "{alias} 삭제",
+  "@tgDeleteLabel": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgRenameTitle": "별칭 바꾸기",
+  "tgAliasHelp": "음성으로 부를 이름이에요",
+  "tgAliasEmpty": "별칭을 입력하세요",
+  "tgAliasTooLong": "너무 길어요 (한글 10자, 영문 32자까지)",
+  "tgSave": "저장",
+  "tgDeleteTitle": "‘{alias}’ 대화방을 지울까요?",
+  "@tgDeleteTitle": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDeleteBody": "이 대화방의 메시지를 더 이상 받지 않아요. 다시 등록하려면 새 코드가 필요해요.",
+  "tgDeleteAction": "삭제",
+  "tgNotifyTitle": "메시지 알림",
+  "tgAutoRead": "새 메시지 바로 읽어 주기",
+  "tgAutoReadBody": "꺼 두면 알림음만 나고 “메시지 읽어 줘”로 들어요",
+  "tgQuietHours": "조용한 시간",
+  "tgQuietStart": "시작",
+  "tgQuietEnd": "끝"
+}

@@ -1,0 +1,190 @@
+{
+  "notesTitle": "메모·일정",
+  "notesHomeToday": "오늘 {count}개 · {next}",
+  "@notesHomeToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "next": {
+        "type": "String"
+      }
+    }
+  },
+  "notesHomeTodayCount": "오늘 일정 {count}개",
+  "@notesHomeTodayCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notesHomeEmpty": "메모·일정 보기",
+  "notesClockHour": "{hour}시",
+  "@notesClockHour": {
+    "placeholders": {
+      "hour": {
+        "type": "int"
+      }
+    }
+  },
+  "notesClockHourMinute": "{hour}시 {minute}분",
+  "@notesClockHourMinute": {
+    "placeholders": {
+      "hour": {
+        "type": "int"
+      },
+      "minute": {
+        "type": "String"
+      }
+    }
+  },
+  "notesSearchHint": "메모·일정 찾기",
+  "notesTabEvents": "일정",
+  "notesTabMemos": "메모",
+  "notesTabTrash": "휴지통",
+  "notesGroupToday": "오늘 · {date}",
+  "@notesGroupToday": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notesGroupTomorrow": "내일 · {date}",
+  "@notesGroupTomorrow": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notesGroupThisWeek": "이번 주",
+  "notesGroupLater": "나중",
+  "notesGroupPast": "지난 일정",
+  "notesAllDay": "하루 종일",
+  "notesBadgeScheduled": "알림 예정",
+  "notesBadgeSent": "보냄",
+  "notesBadgeAcked": "확인됨",
+  "notesBadgeNoAnswer": "대답 없음",
+  "notesBadgeMissed": "놓침",
+  "notesRemindLabel": "알림",
+  "notesRemindNone": "알림 없음",
+  "notesRemindOnTime": "정각",
+  "notesRemindSameDay": "당일 {time}",
+  "@notesRemindSameDay": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "notesRemindMinutes": "{n}분 전",
+  "@notesRemindMinutes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindHours": "{n}시간 전",
+  "@notesRemindHours": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindHoursMinutes": "{h}시간 {m}분 전",
+  "@notesRemindHoursMinutes": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindDayBefore": "하루 전",
+  "notesRemindDays": "{n}일 전",
+  "@notesRemindDays": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindCustom": "직접 입력",
+  "notesRemindHintMany": "여러 개 고를 수 있어요",
+  "notesRemindHintMax": "최대 3개",
+  "notesRemindSummary": "스피커가 {when}에 말로 알려 줘요",
+  "@notesRemindSummary": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "notesRemindOff": "알림 설정에서 일정 알림이 꺼져 있어요",
+  "notesCustomTitle": "몇 분 전에 알릴까요?",
+  "notesCustomHelp": "1분부터 7일(10080분)까지",
+  "notesCustomUnit": "분 전",
+  "notesCustomAdd": "넣기",
+  "notesMemoToday": "오늘",
+  "notesMemoYesterday": "어제",
+  "notesTrashInfo": "말로 지운 메모·일정은 30일 동안 여기 있어요.",
+  "notesTrashLeft": "{days}일 뒤 완전히 지워져요",
+  "@notesTrashLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRestore": "되살리기",
+  "notesDeleteForever": "영구 삭제",
+  "notesVoiceHint": "말로도 돼요: “알렉사, 내일 3시 병원 일정 넣고 1시간 전에 알려 줘” · “알렉사, 우유 사라고 메모해 줘” · “알렉사, 내일 일정 알려 줘”",
+  "notesPrivacy": "말로 찾거나 알려 줄 때는 메모 내용이 OpenAI 대화로 전해져요. 저장은 스피커와 휴대폰에만 해요.",
+  "notesNew": "새로 만들기",
+  "notesOffline": "집 Wi-Fi에서 고칠 수 있어요",
+  "notesOfflineBody": "지금은 휴대폰에 저장된 내용만 보여요.",
+  "notesEmptyEvents": "일정이 없어요",
+  "notesEmptyMemos": "메모가 없어요",
+  "notesEmptyTrash": "휴지통이 비어 있어요",
+  "notesNoMatch": "찾는 내용이 없어요",
+  "notesEditEvent": "일정 편집",
+  "notesEditMemo": "메모 편집",
+  "notesNewEvent": "새 일정",
+  "notesNewMemo": "새 메모",
+  "notesFieldTitle": "제목",
+  "notesFieldBody": "내용",
+  "notesTitleRequired": "제목을 적어 주세요",
+  "notesEditHint": "말로 넣은 일정도 여기서 고칠 수 있어요. 고치면 스피커에 바로 반영돼요.",
+  "notesSave": "저장",
+  "notesDelete": "삭제",
+  "notesDeleteTitle": "“{title}” 지울까요?",
+  "@notesDeleteTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "notesDeleteBody": "스피커에서도 지워지고 되살릴 수 없어요. 다른 가족 휴대폰에서도 사라져요.",
+  "notesDeleteAction": "지우기",
+  "notesSaved": "저장했어요",
+  "notesDeleted": "지웠어요",
+  "notesRestored": "되살렸어요",
+  "notesSettingsTitle": "일정 알림",
+  "notesSettingsEnabled": "스피커가 일정 알려 주기",
+  "notesSettingsEnabledSub": "밤·새벽에도 정한 시각에 알려요",
+  "notesSettingsDefaults": "기본 알림 · 따로 정하지 않은 일정에 써요",
+  "notesSettingsTimed": "시각이 있는 일정",
+  "notesSettingsAllDay": "하루 종일 일정",
+  "notesSettingsSameMorning": "당일 아침",
+  "notesSettingsDayBeforeMorning": "하루 전 아침",
+  "notesSettingsAllDayTime": "알림 시각",
+  "notesSettingsInfoTitle": "알아 두세요",
+  "notesSettingsInfo": "알림은 스피커가 짧게 대화를 열어 말로 알려 줘요. 알림 한 번마다 OpenAI 요금이 조금 들어요. 인터넷이 끊겼을 때는 알림음과 주황 불로 알려요."
+}

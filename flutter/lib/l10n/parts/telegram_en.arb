@@ -1,0 +1,139 @@
+{
+  "tgTitle": "Telegram",
+  "tgConnectTitle": "Connect Telegram",
+  "tgStep1Title": "Create a bot and get its token",
+  "tgStep1Body": "Send /newbot to BotFather to create a bot just for this speaker, then copy the token.",
+  "tgOpenBotFather": "Open BotFather",
+  "tgStep2Title": "Check the token and save it to the speaker",
+  "tgTokenLabel": "Bot token",
+  "tgTokenShow": "Show token",
+  "tgTokenHide": "Hide token",
+  "tgCheckToken": "Check token",
+  "tgTokenChecking": "Checking…",
+  "tgTokenValid": "@{bot} verified",
+  "@tgTokenValid": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      }
+    }
+  },
+  "tgTokenSaved": "@{bot} verified · saved to the speaker",
+  "@tgTokenSaved": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      }
+    }
+  },
+  "tgTokenInvalid": "That token doesn't work. Paste the token exactly as BotFather gave it",
+  "tgTokenNetwork": "Can't reach Telegram. Check your internet connection",
+  "tgKey2Body": "The token goes to the speaker over Bluetooth only, never over Wi-Fi.",
+  "tgSaveToSpeaker": "Save to speaker",
+  "tgSaving": "Finding the speaker and saving…",
+  "tgStep3Title": "Register a family chat",
+  "tgPairBody": "In the chat you want to add (private or family group), send this to the bot.",
+  "tgPairGroupHint": "In a group: /pair@{bot} {code}",
+  "@tgPairGroupHint": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "tgPairRemaining": "{min}m {sec}s left · works only once",
+  "@tgPairRemaining": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "sec": {
+        "type": "int"
+      }
+    }
+  },
+  "tgCopy": "Copy",
+  "tgCopied": "Copied",
+  "tgOpenTelegram": "Open Telegram",
+  "tgOpenFailed": "Couldn't open Telegram",
+  "tgPairWaiting": "Waiting for the chat…",
+  "tgPairExpired": "The code expired. Get a new one",
+  "tgPairNewCode": "Get a new code",
+  "tgPairGetCode": "Get a code",
+  "tgPairLocked": "Save the token to the speaker to get a code",
+  "tgPairNoToken": "The speaker has no bot token yet. Save the token first",
+  "tgPaired": "Added the chat “{name}”",
+  "@tgPaired": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDone": "Done",
+  "tgAddAnother": "Add another chat",
+  "tgAddChatTitle": "Add a chat",
+  "tgReplaceToken": "Change token",
+  "tgStateOk": "Connected",
+  "tgStateConnecting": "Connecting",
+  "tgStateOff": "Not connected",
+  "tgStateConflict": "The bot is in use elsewhere",
+  "tgStateConflictBody": "If another program uses the same bot, the speaker can't get messages. Create a bot just for this speaker and change the token.",
+  "tgStateTokenInvalid": "The token doesn't work",
+  "tgStateTokenInvalidBody": "The bot token was changed or revoked. Enter a new token.",
+  "tgUnread": "{count} unread",
+  "@tgUnread": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tgChatsTitle": "Registered chats",
+  "tgAddChat": "+ Add",
+  "tgChatsEmpty": "No chats yet. Tap “+ Add” to register a family chat.",
+  "tgChatsHint": "Call chats by their alias, like “Tell Mom I'll be late.”",
+  "tgChatPrivate": "Private chat",
+  "tgChatGroup": "Group",
+  "tgChatChannel": "Channel",
+  "tgRenameLabel": "Rename {alias}",
+  "@tgRenameLabel": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDeleteLabel": "Delete {alias}",
+  "@tgDeleteLabel": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgRenameTitle": "Change alias",
+  "tgAliasHelp": "The name you say to the speaker",
+  "tgAliasEmpty": "Enter an alias",
+  "tgAliasTooLong": "Too long (up to 32 letters)",
+  "tgSave": "Save",
+  "tgDeleteTitle": "Delete “{alias}”?",
+  "@tgDeleteTitle": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDeleteBody": "The speaker will stop getting messages from this chat. You'll need a new code to add it again.",
+  "tgDeleteAction": "Delete",
+  "tgNotifyTitle": "Message alerts",
+  "tgAutoRead": "Read new messages aloud",
+  "tgAutoReadBody": "When off, you hear a chime and can say “Read my messages”",
+  "tgQuietHours": "Quiet hours",
+  "tgQuietStart": "Start",
+  "tgQuietEnd": "End"
+}

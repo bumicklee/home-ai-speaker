@@ -1,0 +1,50 @@
+import 'package:aispeaker/core/settings/settings_cubit.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+void main() {
+  late SharedPreferences prefs;
+
+  setUp(() async {
+    SharedPreferences.setMockInitialValues({});
+    prefs = await SharedPreferences.getInstance();
+  });
+
+  test('기본값: 시스템 테마, 시스템 언어', () {
+    expect(SettingsCubit(prefs).state, const SettingsState());
+  });
+
+  blocTest<SettingsCubit, SettingsState>(
+    '테마·언어를 바꾸고 저장한다',
+    build: () => SettingsCubit(prefs),
+    act: (c) async {
+      await c.setThemeMode(ThemeMode.dark);
+      await c.setLanguage('en');
+      await c.setLanguage('fr'); // 지원 안 함 → 무시
+      await c.setLanguage(null);
+    },
+    expect: () => const [
+      SettingsState(themeMode: ThemeMode.dark),
+      SettingsState(themeMode: ThemeMode.dark, locale: Locale('en')),
+      SettingsState(themeMode: ThemeMode.dark),
+    ],
+    verify: (_) {
+      expect(prefs.getString('theme_mode'), 'dark');
+      expect(prefs.getString('locale'), isNull);
+    },
+  );
+
+  test('저장된 값을 읽어 온다', () async {
+    SharedPreferences.setMockInitialValues({'theme_mode': 'light', 'locale': 'en'});
+    final c = SettingsCubit(await SharedPreferences.getInstance());
+    expect(c.state, const SettingsState(themeMode: ThemeMode.light, locale: Locale('en')));
+  });
+
+  test('지원하지 않는 시스템 언어는 ko', () {
+    const supported = [Locale('en'), Locale('ko')];
+    expect(SettingsCubit.resolve(const Locale('ja'), supported), const Locale('ko'));
+    expect(SettingsCubit.resolve(const Locale('en', 'US'), supported), const Locale('en'));
+  });
+}

@@ -1,0 +1,132 @@
+{
+  "provTitle": "Speaker setup",
+  "provKeysTitle": "Which AI should it use?",
+  "provKeysBody": "Decide before connecting to the speaker. It's fine to leave the app to copy a key.",
+  "provOpenAiKey": "OpenAI API key",
+  "provOpenAiKeyInvalid": "Enter a key that starts with sk-",
+  "provTelegramToken": "Telegram bot token",
+  "provOptional": "(optional)",
+  "provTelegramTokenHint": "You can also add it later on the Telegram screen.",
+  "provTelegramTokenInvalid": "This is not a 123456789:ABC… token",
+  "provPhoneName": "This phone's name",
+  "provRemember": "Remember keys on this phone",
+  "provRememberHint": "Filled in next time. Stored encrypted in the phone's secure storage.",
+  "provPaste": "Paste",
+  "provFindSpeaker": "Find speaker",
+  "provScanTitle": "Looking for nearby speakers",
+  "provScanHint": "A new speaker shows up right away. For a speaker already set up, hold the middle button (Key2) for 3 seconds.",
+  "provScanFound": "{count} found",
+  "@provScanFound": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "provScanNone": "No speaker found yet",
+  "provScanAgain": "Search again",
+  "provSignalNear": "Very close",
+  "provSignalFar": "Far away",
+  "provConnecting": "Connecting to the speaker…",
+  "provWifiChoiceTitle": "This speaker is already on Wi-Fi",
+  "provWifiChoiceBody": "Keep it and we register right away without restarting.",
+  "provWifiKeep": "Keep current Wi-Fi",
+  "provWifiChange": "Change Wi-Fi",
+  "provWifiTitle": "Choose the speaker's Wi-Fi",
+  "provWifiScanning": "The speaker is scanning for Wi-Fi…",
+  "provWifiNote": "The speaker supports 2.4 GHz Wi-Fi only. The speaker found this list itself.",
+  "provWifiOpen": "Open",
+  "provWifiManual": "Enter a Wi-Fi that's not listed",
+  "provWifiName": "Wi-Fi name",
+  "provWifiPassword": "Password",
+  "provWifiPasswordTitle": "Password for {ssid}",
+  "@provWifiPasswordTitle": {
+    "placeholders": {
+      "ssid": {
+        "type": "String"
+      }
+    }
+  },
+  "provWifiShowPassword": "Show password",
+  "provWifiConnect": "Connect",
+  "provWifiConnecting": "Connecting to {ssid}… (up to 20 s)",
+  "@provWifiConnecting": {
+    "placeholders": {
+      "ssid": {
+        "type": "String"
+      }
+    }
+  },
+  "provWifiRescan": "Scan again",
+  "provSending": "Saving keys and registering this phone…",
+  "provPhonesFullTitle": "The speaker has the maximum number of phones",
+  "provPhonesFullBody": "Pick one to remove and this phone takes its place.",
+  "provPhonesFullAction": "Remove and register this phone",
+  "provDiscovering": "The speaker is restarting. Looking for it on your Wi-Fi…",
+  "provDoneTitle": "All set",
+  "provDoneBody": "When you hear “AI speaker is ready”, say “Alexa”.",
+  "provDoneWifi": "Wi-Fi connected",
+  "provDoneKey": "Keys saved",
+  "provDonePair": "This phone registered",
+  "provDoneFound": "Found the speaker on Wi-Fi ({host})",
+  "@provDoneFound": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "provDoneNotFound": "Not found on your Wi-Fi yet. You can search again from Home.",
+  "provGoHome": "Go home",
+  "provFailedTitle": "Setup didn't finish",
+  "provCancel": "Cancel",
+  "provAiSection": "① AI",
+  "provRequired": "(required)",
+  "provKeyTyped": "Key entered. It is sent to the speaker only over Bluetooth.",
+  "provKeyExistingHint": "After connecting we check that the speaker has this key. If not, this AI can't be chosen.",
+  "provKeyRequiredHint": "This AI needs a key.",
+  "provExistingKey": "This speaker already has this AI's key (adding another phone)",
+  "provModeSection": "② Conversation mode",
+  "provModeLater": "(you can change it later in Assistant settings)",
+  "provMore": "More (optional): {other} key · Telegram token",
+  "@provMore": {
+    "placeholders": {
+      "other": {
+        "type": "String"
+      }
+    }
+  },
+  "provMoreOtherHint": "Add the {other} key too and you can switch AI anytime later.",
+  "@provMoreOtherHint": {
+    "placeholders": {
+      "other": {
+        "type": "String"
+      }
+    }
+  },
+  "provKeyBlocked": "Enter the {key} to continue",
+  "@provKeyBlocked": {
+    "placeholders": {
+      "key": {
+        "type": "String"
+      }
+    }
+  },
+  "provMissingKey": "This speaker has no {provider} key. Enter the key or choose another AI.",
+  "@provMissingKey": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "provMaybeNotReady": "(may not be ready yet on some speakers)",
+  "provNotReady": "This speaker can't use {provider} yet (coming soon). Choose another AI, or update the speaker and try again.",
+  "@provNotReady": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  }
+}

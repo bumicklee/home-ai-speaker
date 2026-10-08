@@ -1,0 +1,99 @@
+{
+  "radioTitle": "Radio",
+  "radioSearch": "Find stations",
+  "radioEdit": "Edit",
+  "radioPlaying": "Playing",
+  "radioPaused": "Paused",
+  "radioBuffering": "Connecting",
+  "radioNothingPlaying": "Nothing is playing",
+  "radioPickStation": "Pick a station below",
+  "radioPlay": "Play",
+  "radioPause": "Pause",
+  "radioResume": "Resume",
+  "radioStop": "Stop",
+  "radioPrevious": "Previous station",
+  "radioNext": "Next station",
+  "radioGroupKorean": "Korean music",
+  "radioGroupNews": "News & business",
+  "radioGroupTalk": "Talk",
+  "radioGroupOther": "Other",
+  "radioEmpty": "No saved stations yet. Use Find stations to add some",
+  "radioNotPlaying": "No station is playing right now",
+  "radioEditTitle": "Edit stations",
+  "radioEditHint": "Drag to reorder. Save to update the speaker",
+  "radioCount": "{count} / {max}",
+  "@radioCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "radioSave": "Save",
+  "radioSaved": "Saved",
+  "radioAddCustom": "Add by URL",
+  "radioRename": "Rename",
+  "radioDelete": "Delete",
+  "radioDeleteTitle": "Delete {name}?",
+  "@radioDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "radioDiscardTitle": "Discard your changes?",
+  "radioDiscard": "Discard",
+  "radioFormName": "Name",
+  "radioFormUrl": "Stream URL",
+  "radioFormUrlHint": "An MP3 or AAC stream starting with http:// or https://",
+  "radioFormGenre": "Genre tags",
+  "radioFormGenreHint": "Separate with commas (e.g. jazz,english)",
+  "radioFormAdd": "Add",
+  "radioErrTooMany": "You can save up to {max} stations",
+  "@radioErrTooMany": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "radioErrNameEmpty": "Enter a name",
+  "radioErrNameTooLong": "Name is too long (48 bytes max)",
+  "radioErrUrlInvalid": "Only http:// or https:// URLs work",
+  "radioErrUrlTooLong": "URL is too long (256 characters max)",
+  "radioErrGenreTooLong": "Genre tags are too long (64 characters max)",
+  "radioErrTooLarge": "The list is too large. Shorten some names or URLs",
+  "radioErrDuplicate": "This station is already saved",
+  "radioSearchTitle": "Find stations",
+  "radioSearchByName": "Name",
+  "radioSearchByTag": "Genre",
+  "radioSearchNameHint": "Station name (e.g. BBC, jazz)",
+  "radioSearchTagHint": "Genre tag (e.g. jazz, kpop, news)",
+  "radioSearchHlsNote": "Korean broadcasters like KBS, MBC and SBS only stream in HLS, which the speaker can't play, so they don't appear",
+  "radioSearchIdle": "Search by name or genre. Only stations the speaker can play are shown",
+  "radioSearchNoResults": "No stations the speaker can play",
+  "radioSearchFailed": "Couldn't get the station list. Check your internet connection",
+  "radioSearchAdd": "Add",
+  "radioSearchAdded": "Added",
+  "radioSearchPlayNow": "Play now",
+  "radioAdded": "Added {name}",
+  "@radioAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "radioKbps": "{kbps} kbps",
+  "@radioKbps": {
+    "placeholders": {
+      "kbps": {
+        "type": "int"
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "audioTitle": "오디오·호출어",
+  "audioWakeEnabled": "호출어로 부르기",
+  "audioWakeEnabledHint": "끄면 가운데 버튼으로만 대화해요 (TV 볼 때)",
+  "audioPhrase": "호출어",
+  "audioPhraseComputer": "컴퓨터",
+  "audioPhraseAlexa": "알렉사",
+  "audioSensitivity": "감도",
+  "audioSensitivityLow": "오인식 적음",
+  "audioSensitivityHigh": "잘 알아들음",
+  "audioAdvanced": "고급",
+  "audioWakeGain": "호출어 입력 키우기",
+  "audioWakeGainHint": "멀리서 잘 못 알아들을 때만 올려요",
+  "audioWakeGainValue": "+{db} dB",
+  "@audioWakeGainValue": {
+    "placeholders": {
+      "db": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTest": "감지 테스트 (60초)",
+  "audioWakeTestRunning": "테스트 중 · {seconds}초 남음",
+  "@audioWakeTestRunning": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTestHint": "‘{phrase}’라고 몇 번 불러 보세요",
+  "@audioWakeTestHint": {
+    "placeholders": {
+      "phrase": {
+        "type": "String"
+      }
+    }
+  },
+  "audioWakeTestCount": "{count}번 감지했어요",
+  "@audioWakeTestCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTestDone": "60초 동안 {count}번 감지했어요",
+  "@audioWakeTestDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "audioVolume": "볼륨",
+  "audioVolumeValue": "{value} / {max}",
+  "@audioVolumeValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "audioDuck": "대화할 때 음악 줄이기",
+  "audioDb": "{db} dB",
+  "@audioDb": {
+    "placeholders": {
+      "db": {
+        "type": "int"
+      }
+    }
+  },
+  "audioMicGain": "마이크 감도",
+  "audioMicGainHint": "높을수록 작은 소리도 들어요",
+  "audioAutoGain": "마이크 자동 조절",
+  "audioAutoGainHint": "말소리 크기에 맞춰 조금씩 조절해요",
+  "audioTestTone": "스피커 테스트음",
+  "audioLed": "LED 밝기",
+  "audioPercent": "{value}%",
+  "@audioPercent": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  }
+}

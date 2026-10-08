@@ -1,0 +1,90 @@
+{
+  "audioTitle": "Audio & wake word",
+  "audioWakeEnabled": "Wake word",
+  "audioWakeEnabledHint": "When off, talk with the center button only (for TV time)",
+  "audioPhrase": "Wake phrase",
+  "audioPhraseComputer": "Computer",
+  "audioPhraseAlexa": "Alexa",
+  "audioSensitivity": "Sensitivity",
+  "audioSensitivityLow": "Fewer false wakes",
+  "audioSensitivityHigh": "Hears easily",
+  "audioAdvanced": "Advanced",
+  "audioWakeGain": "Wake input boost",
+  "audioWakeGainHint": "Raise only if it misses you from afar",
+  "audioWakeGainValue": "+{db} dB",
+  "@audioWakeGainValue": {
+    "placeholders": {
+      "db": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTest": "Detection test (60 s)",
+  "audioWakeTestRunning": "Testing · {seconds} s left",
+  "@audioWakeTestRunning": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTestHint": "Say “{phrase}” a few times",
+  "@audioWakeTestHint": {
+    "placeholders": {
+      "phrase": {
+        "type": "String"
+      }
+    }
+  },
+  "audioWakeTestCount": "Detected {count} times",
+  "@audioWakeTestCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTestDone": "Detected {count} times in 60 s",
+  "@audioWakeTestDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "audioVolume": "Volume",
+  "audioVolumeValue": "{value} / {max}",
+  "@audioVolumeValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "audioDuck": "Lower music while talking",
+  "audioDb": "{db} dB",
+  "@audioDb": {
+    "placeholders": {
+      "db": {
+        "type": "int"
+      }
+    }
+  },
+  "audioMicGain": "Mic gain",
+  "audioMicGainHint": "Higher picks up quieter voices",
+  "audioAutoGain": "Auto mic level",
+  "audioAutoGainHint": "Adjusts gently to your voice level",
+  "audioTestTone": "Speaker test tone",
+  "audioLed": "LED brightness",
+  "audioPercent": "{value}%",
+  "@audioPercent": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  }
+}

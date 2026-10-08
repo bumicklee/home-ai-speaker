@@ -1,0 +1,85 @@
+{
+  "@@locale": "ko",
+  "aiModeTitle": "AI · 대화 방식",
+  "aiModeSaver": "절약 모드",
+  "aiModeLive": "실시간",
+  "aiLabel": "{provider} · {mode}",
+  "@aiLabel": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "aiKeyLabel": "{provider} API 키",
+  "@aiKeyLabel": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiKeyInvalidGemini": "Gemini 키는 AIza로 시작하고 영문·숫자·-·_만 들어가요 (끝에 :wq 같은 글자가 붙지 않았는지 확인해 주세요)",
+  "aiPriceShortOpenAiSaver": "월 약 1.5만 원",
+  "aiPriceShortOpenAiLive": "월 약 12.6만 원",
+  "aiPriceShortGeminiSaver": "월 약 1만 원",
+  "aiPriceShortGeminiLive": "월 약 4만 원",
+  "aiShortSaverNote": "대답 1~2초 늦음",
+  "aiShortLiveNote": "끼어들기 됨",
+  "aiPriceOpenAiSaver": "월 약 15,000원",
+  "aiPriceOpenAiLive": "월 약 126,000원",
+  "aiPriceGeminiSaver": "월 약 10,000원",
+  "aiPriceGeminiLive": "월 약 40,000원",
+  "aiDescOpenAiSaver": "사람이 말한 만큼만 요금이 나가요. 대답이 1~2초 늦어요.",
+  "aiDescOpenAiLive": "가장 자연스럽고 빨라요. 대화가 연결된 시간만큼 요금이 나가요(분당 약 70원).",
+  "aiDescGeminiSaver": "가장 저렴해요. 대답이 1~2초 늦어요.",
+  "aiDescGeminiLive": "Google Gemini 실시간 대화. OpenAI 실시간의 약 1/3 요금이에요.",
+  "aiTagInstant": "대답 바로",
+  "aiTagBargeIn": "말하는 중 끼어들기 됨",
+  "aiTagNoBargeIn": "끼어들기 안 됨 · 가운데 버튼으로 멈춤",
+  "aiTagOneEighth": "약 1/8 요금",
+  "aiTagCheapest": "가장 저렴",
+  "aiPickProvider": "① AI 고르기",
+  "aiPickMode": "② {provider} 대화 방식",
+  "@aiPickMode": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiKeyPresent": "키 있음",
+  "aiKeyMissing": "키 없음 · 쓸 수 없어요",
+  "aiNotReady": "준비 중",
+  "aiNotReadyHint": "이 스피커에서는 아직 쓸 수 없어요. 스피커를 업데이트하면 열려요.",
+  "aiAddKey": "{provider} 키 넣기 (가운데 버튼 3초 → 블루투스로 보내요)",
+  "@aiAddKey": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiInfoTitle": "알아 두세요",
+  "aiInfoBody": "영어 수업은 발음을 실시간으로 들어야 해서 늘 실시간 API(OpenAI)로 해요. 요금은 하루 1시간 쓸 때 한 달 예상이에요. 바꾸면 다음 대화부터 적용돼요.",
+  "aiNoKeyError": "이 스피커에는 {provider} 키가 없어요. 먼저 키를 넣어 주세요.",
+  "@aiNoKeyError": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiChanged": "바꿨어요. 다음 대화부터 적용돼요",
+  "aiKeySent": "{provider} 키를 스피커에 넣었어요",
+  "@aiKeySent": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  }
+}

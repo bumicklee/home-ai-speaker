@@ -1,0 +1,99 @@
+{
+  "radioTitle": "라디오",
+  "radioSearch": "방송 찾기",
+  "radioEdit": "편집",
+  "radioPlaying": "재생 중",
+  "radioPaused": "일시정지",
+  "radioBuffering": "연결 중",
+  "radioNothingPlaying": "재생 중인 것이 없어요",
+  "radioPickStation": "아래에서 방송을 골라 주세요",
+  "radioPlay": "재생",
+  "radioPause": "일시정지",
+  "radioResume": "다시 재생",
+  "radioStop": "정지",
+  "radioPrevious": "이전 방송",
+  "radioNext": "다음 방송",
+  "radioGroupKorean": "한국 음악",
+  "radioGroupNews": "뉴스·경제",
+  "radioGroupTalk": "토크",
+  "radioGroupOther": "기타",
+  "radioEmpty": "저장된 방송이 없어요. 방송 찾기로 추가해 보세요",
+  "radioNotPlaying": "지금 재생 중인 방송이 없어요",
+  "radioEditTitle": "방송 편집",
+  "radioEditHint": "끌어서 순서를 바꿔요. 저장해야 스피커에 반영돼요",
+  "radioCount": "{count} / {max}개",
+  "@radioCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "radioSave": "저장",
+  "radioSaved": "저장했어요",
+  "radioAddCustom": "주소로 직접 추가",
+  "radioRename": "이름 바꾸기",
+  "radioDelete": "삭제",
+  "radioDeleteTitle": "{name} 방송을 지울까요?",
+  "@radioDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "radioDiscardTitle": "바꾼 내용을 버릴까요?",
+  "radioDiscard": "버리기",
+  "radioFormName": "이름",
+  "radioFormUrl": "방송 주소",
+  "radioFormUrlHint": "http:// 또는 https://로 시작하는 MP3·AAC 스트림",
+  "radioFormGenre": "장르 태그",
+  "radioFormGenreHint": "쉼표로 구분해요 (예: kpop,korean)",
+  "radioFormAdd": "추가",
+  "radioErrTooMany": "방송은 {max}개까지 저장할 수 있어요",
+  "@radioErrTooMany": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "radioErrNameEmpty": "이름을 입력해 주세요",
+  "radioErrNameTooLong": "이름이 너무 길어요 (한글 16자, 영문 48자까지)",
+  "radioErrUrlInvalid": "http:// 또는 https://로 시작하는 주소만 쓸 수 있어요",
+  "radioErrUrlTooLong": "주소가 너무 길어요 (256자까지)",
+  "radioErrGenreTooLong": "장르 태그가 너무 길어요 (64자까지)",
+  "radioErrTooLarge": "목록이 너무 커요. 이름이나 주소를 줄여 주세요",
+  "radioErrDuplicate": "이미 저장된 방송이에요",
+  "radioSearchTitle": "방송 찾기",
+  "radioSearchByName": "이름",
+  "radioSearchByTag": "장르",
+  "radioSearchNameHint": "방송 이름 (예: BBC, jazz)",
+  "radioSearchTagHint": "장르 태그 (예: jazz, kpop, news)",
+  "radioSearchHlsNote": "KBS·MBC·SBS 같은 한국 방송사는 HLS 방식이라 스피커가 틀 수 없어 목록에 나오지 않아요",
+  "radioSearchIdle": "이름이나 장르로 찾아 보세요. 스피커가 틀 수 있는 방송만 보여요",
+  "radioSearchNoResults": "스피커가 틀 수 있는 방송을 찾지 못했어요",
+  "radioSearchFailed": "방송 목록을 받지 못했어요. 인터넷 연결을 확인해 주세요",
+  "radioSearchAdd": "추가",
+  "radioSearchAdded": "추가됨",
+  "radioSearchPlayNow": "지금 틀기",
+  "radioAdded": "{name} 방송을 추가했어요",
+  "@radioAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "radioKbps": "{kbps}kbps",
+  "@radioKbps": {
+    "placeholders": {
+      "kbps": {
+        "type": "int"
+      }
+    }
+  }
+}

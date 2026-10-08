@@ -1,0 +1,82 @@
+{
+  "@@locale": "ko",
+  "asstTitle": "비서",
+  "asstName": "이름",
+  "asstNameHint": "호출어는 바뀌지 않아요",
+  "asstLanguage": "말하는 언어",
+  "asstLanguageKo": "한국어",
+  "asstLanguageEn": "English",
+  "asstLanguageHint": "스피커가 대화할 때 쓰는 언어예요. 앱 언어는 시스템 화면에서 바꿔요.",
+  "asstVoice": "목소리",
+  "asstVoiceNextTime": "다음 대화부터 바뀌어요",
+  "asstPurpose": "하는 일",
+  "asstPurposeHint": "비서의 역할이나 말투를 적어요",
+  "asstUnits": "단위",
+  "asstUnitsMetric": "미터법 (°C·km)",
+  "asstUnitsImperial": "야드파운드법 (°F·mi)",
+  "asstPlace": "사는 곳",
+  "asstPlaceBody": "날씨·근처 검색에 써요. 스피커에는 동네 이름만 저장하고 좌표는 보내지 않아요.",
+  "asstPlaceField": "동네",
+  "asstPlaceExample": "예: 서울 강남구 역삼동",
+  "asstUseCurrentLocation": "현재 위치로",
+  "asstTimezone": "시간대",
+  "asstLocationFilled": "동네와 시간대를 넣었어요. 저장을 눌러 주세요",
+  "asstLocationFilledOnlyPlace": "동네를 넣었어요. 시간대를 골라 주세요",
+  "asstTimezoneUnsupported": "휴대폰 시간대({tz})는 스피커가 몰라요. 가까운 시간대를 골라 주세요.",
+  "@asstTimezoneUnsupported": {
+    "placeholders": {
+      "tz": {
+        "type": "String"
+      }
+    }
+  },
+  "asstTimezoneUnknown": "휴대폰 시간대를 읽지 못했어요. 가까운 시간대를 골라 주세요.",
+  "asstTimezoneMore": "다른 시간대",
+  "asstLocationServiceOff": "휴대폰 위치 기능이 꺼져 있어요",
+  "asstLocationDenied": "위치 권한이 없어요. 동네를 직접 적어 주세요",
+  "asstLocationDeniedForever": "위치 권한이 꺼져 있어요. 설정에서 켜거나 직접 적어 주세요",
+  "asstOpenSettings": "설정 열기",
+  "asstLocationUnavailable": "위치를 찾지 못했어요. 직접 적어 주세요",
+  "asstWebSearch": "웹 검색 (날씨·뉴스)",
+  "asstDeviceControls": "기기 조작 (볼륨·라디오·기억)",
+  "asstAutoMemory": "대화 중 알게 된 것 자동 기억",
+  "asstMemories": "기억 목록",
+  "asstMemoryCount": "{count}개",
+  "@asstMemoryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "asstSave": "저장",
+  "asstSaved": "저장했어요",
+  "asstDiscardTitle": "저장하지 않고 나갈까요?",
+  "asstDiscardBody": "고친 내용은 사라져요.",
+  "asstDiscard": "나가기",
+  "asstNameEmpty": "이름을 적어 주세요",
+  "asstTooLong": "너무 길어요 (최대 {max}바이트)",
+  "@asstTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "asstBytes": "{used}/{max}바이트",
+  "@asstBytes": {
+    "placeholders": {
+      "used": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "asstMemoriesNotice": "비서가 기억한 내용이에요. 지우면 다음 대화부터 잊어요.",
+  "asstMemoriesEmpty": "기억한 것이 없어요",
+  "asstForget": "지우기",
+  "asstForgetTitle": "이 기억을 지울까요?",
+  "asstForgotten": "지웠어요"
+}

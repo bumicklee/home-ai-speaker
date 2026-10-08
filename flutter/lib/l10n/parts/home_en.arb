@@ -1,0 +1,51 @@
+{
+  "homeTitle": "Speaker",
+  "homeAddSpeaker": "Add speaker",
+  "homeSelectSpeaker": "Choose speaker",
+  "homeConnected": "Connected",
+  "homeWifiGood": "Strong Wi-Fi",
+  "homeWifiFair": "Fair Wi-Fi",
+  "homeWifiWeak": "Weak Wi-Fi",
+  "homeIdleTitle": "Listening",
+  "homeIdleBody": "Say “Alexa” or tap the button below",
+  "homeTalkingTitle": "In conversation",
+  "homeTalkingBody": "Ends by itself 60 seconds after you stop talking",
+  "homeConnectingTitle": "Connecting…",
+  "homeStartTalk": "Start talking",
+  "homeStopTalk": "End conversation",
+  "homeNothingPlaying": "Nothing playing",
+  "homeOpenRadio": "Open radio",
+  "homeRadioPlaying": "Radio · playing",
+  "homeRadioPaused": "Radio · paused",
+  "homeRadioBuffering": "Radio · connecting",
+  "homeVolume": "Volume",
+  "homePrevious": "Previous station",
+  "homeNext": "Next station",
+  "homePause": "Pause",
+  "homeResume": "Play",
+  "homeStop": "Stop",
+  "homeTelegram": "Telegram",
+  "homeTelegramUnread": "{count} new",
+  "@homeTelegramUnread": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeTelegramSetup": "Set up",
+  "homeMenuRadio": "Radio",
+  "homeMenuAssistant": "Assistant",
+  "homeMenuAudio": "Audio",
+  "homeMenuSystem": "System",
+  "homeUnreachableTitle": "Can't reach the speaker",
+  "homeUnreachableBody": "Check that your phone and the speaker are on the same Wi-Fi.",
+  "homeFindAgain": "Find again",
+  "homeUnauthorizedTitle": "This phone was removed",
+  "homeUnauthorizedBody": "Hold the speaker's middle button for 3 seconds, then register again.",
+  "homeRegisterAgain": "Register again",
+  "homeEmptyTitle": "No speaker yet",
+  "homeEmptyBody": "Keep your phone close to the speaker and start. A new speaker shows up right away.",
+  "homeComingSoon": "This screen is coming soon",
+  "homeRemoveFromPhone": "Remove from this phone"
+}

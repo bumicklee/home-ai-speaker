@@ -1,0 +1,190 @@
+{
+  "notesTitle": "Notes & schedule",
+  "notesHomeToday": "{count} today · {next}",
+  "@notesHomeToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "next": {
+        "type": "String"
+      }
+    }
+  },
+  "notesHomeTodayCount": "{count} events today",
+  "@notesHomeTodayCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notesHomeEmpty": "See notes and events",
+  "notesClockHour": "{hour} o'clock",
+  "@notesClockHour": {
+    "placeholders": {
+      "hour": {
+        "type": "int"
+      }
+    }
+  },
+  "notesClockHourMinute": "{hour}:{minute}",
+  "@notesClockHourMinute": {
+    "placeholders": {
+      "hour": {
+        "type": "int"
+      },
+      "minute": {
+        "type": "String"
+      }
+    }
+  },
+  "notesSearchHint": "Search notes and events",
+  "notesTabEvents": "Events",
+  "notesTabMemos": "Memos",
+  "notesTabTrash": "Trash",
+  "notesGroupToday": "Today · {date}",
+  "@notesGroupToday": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notesGroupTomorrow": "Tomorrow · {date}",
+  "@notesGroupTomorrow": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notesGroupThisWeek": "This week",
+  "notesGroupLater": "Later",
+  "notesGroupPast": "Past events",
+  "notesAllDay": "All day",
+  "notesBadgeScheduled": "Reminder set",
+  "notesBadgeSent": "Sent",
+  "notesBadgeAcked": "Heard",
+  "notesBadgeNoAnswer": "No answer",
+  "notesBadgeMissed": "Missed",
+  "notesRemindLabel": "Reminder",
+  "notesRemindNone": "No reminder",
+  "notesRemindOnTime": "At start time",
+  "notesRemindSameDay": "Same day {time}",
+  "@notesRemindSameDay": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "notesRemindMinutes": "{n} min before",
+  "@notesRemindMinutes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindHours": "{n} hr before",
+  "@notesRemindHours": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindHoursMinutes": "{h} hr {m} min before",
+  "@notesRemindHoursMinutes": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindDayBefore": "1 day before",
+  "notesRemindDays": "{n} days before",
+  "@notesRemindDays": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindCustom": "Custom",
+  "notesRemindHintMany": "You can pick several",
+  "notesRemindHintMax": "Up to 3",
+  "notesRemindSummary": "The speaker will tell you {when}",
+  "@notesRemindSummary": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "notesRemindOff": "Event reminders are turned off in reminder settings",
+  "notesCustomTitle": "How many minutes before?",
+  "notesCustomHelp": "From 1 minute to 7 days (10080 minutes)",
+  "notesCustomUnit": "min before",
+  "notesCustomAdd": "Add",
+  "notesMemoToday": "Today",
+  "notesMemoYesterday": "Yesterday",
+  "notesTrashInfo": "Notes deleted by voice stay here for 30 days.",
+  "notesTrashLeft": "Deleted for good in {days} days",
+  "@notesTrashLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRestore": "Restore",
+  "notesDeleteForever": "Delete for good",
+  "notesVoiceHint": "You can also say: “Alexa, add a hospital visit tomorrow at 3 and remind me an hour before” · “Alexa, make a memo to buy milk” · “Alexa, what's on tomorrow?”",
+  "notesPrivacy": "When you search by voice or get a reminder, the note is sent to the OpenAI conversation. Notes are stored only on the speaker and phones.",
+  "notesNew": "New",
+  "notesOffline": "You can edit on your home Wi-Fi",
+  "notesOfflineBody": "Showing the copy saved on this phone.",
+  "notesEmptyEvents": "No events",
+  "notesEmptyMemos": "No memos",
+  "notesEmptyTrash": "Trash is empty",
+  "notesNoMatch": "Nothing found",
+  "notesEditEvent": "Edit event",
+  "notesEditMemo": "Edit memo",
+  "notesNewEvent": "New event",
+  "notesNewMemo": "New memo",
+  "notesFieldTitle": "Title",
+  "notesFieldBody": "Details",
+  "notesTitleRequired": "Please enter a title",
+  "notesEditHint": "You can edit notes made by voice here too. Changes go to the speaker right away.",
+  "notesSave": "Save",
+  "notesDelete": "Delete",
+  "notesDeleteTitle": "Delete “{title}”?",
+  "@notesDeleteTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "notesDeleteBody": "It will be deleted from the speaker too and can't be restored. It will also disappear from other family phones.",
+  "notesDeleteAction": "Delete",
+  "notesSaved": "Saved",
+  "notesDeleted": "Deleted",
+  "notesRestored": "Restored",
+  "notesSettingsTitle": "Event reminders",
+  "notesSettingsEnabled": "Speaker tells you about events",
+  "notesSettingsEnabledSub": "Also at night, at the time you set",
+  "notesSettingsDefaults": "Default reminders · used when an event has none set",
+  "notesSettingsTimed": "Events with a time",
+  "notesSettingsAllDay": "All-day events",
+  "notesSettingsSameMorning": "Morning of the day",
+  "notesSettingsDayBeforeMorning": "Morning of the day before",
+  "notesSettingsAllDayTime": "Reminder time",
+  "notesSettingsInfoTitle": "Good to know",
+  "notesSettingsInfo": "The speaker opens a short conversation to tell you. Each reminder costs a little OpenAI usage. Without internet, it plays a chime and shows an orange light."
+}

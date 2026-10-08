@@ -1,0 +1,132 @@
+{
+  "provTitle": "스피커 설정",
+  "provKeysTitle": "어떤 AI를 쓸까요?",
+  "provKeysBody": "스피커에 연결하기 전에 정해요. 키를 복사하러 다른 앱에 다녀와도 괜찮아요.",
+  "provOpenAiKey": "OpenAI API 키",
+  "provOpenAiKeyInvalid": "sk- 로 시작하는 키를 넣어 주세요",
+  "provTelegramToken": "텔레그램 봇 토큰",
+  "provOptional": "(선택)",
+  "provTelegramTokenHint": "나중에 텔레그램 화면에서 넣어도 돼요.",
+  "provTelegramTokenInvalid": "123456789:ABC… 형식의 토큰이 아니에요",
+  "provPhoneName": "이 휴대폰 이름",
+  "provRemember": "이 휴대폰에 키 기억하기",
+  "provRememberHint": "다음 설정 때 자동으로 채워요. 휴대폰의 보안 저장소에 암호화해 둬요.",
+  "provPaste": "붙여넣기",
+  "provFindSpeaker": "스피커 찾기",
+  "provScanTitle": "근처 스피커를 찾고 있어요",
+  "provScanHint": "새 스피커는 켜면 바로 보여요. 이미 설정한 스피커는 가운데 버튼(Key2)을 3초 누르세요.",
+  "provScanFound": "찾은 스피커 {count}대",
+  "@provScanFound": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "provScanNone": "아직 찾은 스피커가 없어요",
+  "provScanAgain": "다시 찾기",
+  "provSignalNear": "아주 가까움",
+  "provSignalFar": "멀리 있음",
+  "provConnecting": "스피커에 연결하는 중…",
+  "provWifiChoiceTitle": "이 스피커는 이미 Wi-Fi에 연결돼 있어요",
+  "provWifiChoiceBody": "그대로 두면 다시 시작하지 않고 바로 등록해요.",
+  "provWifiKeep": "지금 Wi-Fi 그대로",
+  "provWifiChange": "Wi-Fi 바꾸기",
+  "provWifiTitle": "스피커가 쓸 Wi-Fi를 고르세요",
+  "provWifiScanning": "스피커가 주변 Wi-Fi를 찾는 중…",
+  "provWifiNote": "스피커는 2.4GHz Wi-Fi만 연결할 수 있어요. 목록은 스피커가 직접 찾은 것이에요.",
+  "provWifiOpen": "개방",
+  "provWifiManual": "목록에 없는 Wi-Fi 직접 입력",
+  "provWifiName": "Wi-Fi 이름",
+  "provWifiPassword": "비밀번호",
+  "provWifiPasswordTitle": "{ssid} 비밀번호",
+  "@provWifiPasswordTitle": {
+    "placeholders": {
+      "ssid": {
+        "type": "String"
+      }
+    }
+  },
+  "provWifiShowPassword": "비밀번호 보기",
+  "provWifiConnect": "연결",
+  "provWifiConnecting": "{ssid}에 연결하는 중… (최대 20초)",
+  "@provWifiConnecting": {
+    "placeholders": {
+      "ssid": {
+        "type": "String"
+      }
+    }
+  },
+  "provWifiRescan": "다시 찾기",
+  "provSending": "키를 저장하고 이 휴대폰을 등록하는 중…",
+  "provPhonesFullTitle": "등록할 수 있는 휴대폰이 가득 찼어요",
+  "provPhonesFullBody": "지울 휴대폰을 하나 고르면 그 자리에 이 휴대폰을 등록해요.",
+  "provPhonesFullAction": "지우고 이 휴대폰 등록",
+  "provDiscovering": "스피커가 다시 시작하는 중이에요. 같은 Wi-Fi에서 찾고 있어요…",
+  "provDoneTitle": "설정이 끝났어요",
+  "provDoneBody": "“AI 스피커가 준비되었습니다” 안내가 나오면 “알렉사”라고 불러 보세요.",
+  "provDoneWifi": "Wi-Fi 연결",
+  "provDoneKey": "키 저장",
+  "provDonePair": "이 휴대폰 등록",
+  "provDoneFound": "같은 Wi-Fi에서 스피커 찾음 ({host})",
+  "@provDoneFound": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "provDoneNotFound": "아직 같은 Wi-Fi에서 찾지 못했어요. 홈에서 다시 찾을 수 있어요.",
+  "provGoHome": "홈으로",
+  "provFailedTitle": "설정을 마치지 못했어요",
+  "provCancel": "그만두기",
+  "provAiSection": "① AI",
+  "provRequired": "(필수)",
+  "provKeyTyped": "키가 들어갔어요. 스피커에는 블루투스로만 보내요.",
+  "provKeyExistingHint": "연결한 뒤 스피커에 이 키가 있는지 확인해요. 없으면 이 AI는 고를 수 없어요.",
+  "provKeyRequiredHint": "이 AI를 쓰려면 키가 꼭 있어야 해요.",
+  "provExistingKey": "이미 이 AI 키가 저장된 스피커예요 (휴대폰 추가 등록)",
+  "provModeSection": "② 대화 방식",
+  "provModeLater": "(나중에 비서 설정에서 바꿀 수 있어요)",
+  "provMore": "더 넣기 (선택): {other} 키 · 텔레그램 토큰",
+  "@provMore": {
+    "placeholders": {
+      "other": {
+        "type": "String"
+      }
+    }
+  },
+  "provMoreOtherHint": "{other} 키를 함께 넣으면 나중에 AI를 바로 바꿀 수 있어요.",
+  "@provMoreOtherHint": {
+    "placeholders": {
+      "other": {
+        "type": "String"
+      }
+    }
+  },
+  "provKeyBlocked": "{key}를 넣어야 다음으로 갈 수 있어요",
+  "@provKeyBlocked": {
+    "placeholders": {
+      "key": {
+        "type": "String"
+      }
+    }
+  },
+  "provMissingKey": "이 스피커에는 {provider} 키가 없어요. 키를 넣거나 다른 AI를 고르세요.",
+  "@provMissingKey": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "provMaybeNotReady": "(스피커에 따라 준비 중일 수 있어요)",
+  "provNotReady": "이 스피커는 아직 {provider}를 쓸 수 없어요(준비 중). 다른 AI를 고르거나 스피커를 업데이트한 뒤 다시 해 주세요.",
+  "@provNotReady": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  }
+}

@@ -1,0 +1,1160 @@
+{
+  "@@locale": "en",
+  "aiModeTitle": "AI · Conversation mode",
+  "aiModeSaver": "Saver",
+  "aiModeLive": "Real-time",
+  "aiLabel": "{provider} · {mode}",
+  "@aiLabel": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "aiKeyLabel": "{provider} API key",
+  "@aiKeyLabel": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiKeyInvalidGemini": "A Gemini key starts with AIza and has only letters, digits, - and _ (check nothing like :wq got pasted at the end)",
+  "aiPriceShortOpenAiSaver": "About ₩15k/month",
+  "aiPriceShortOpenAiLive": "About ₩126k/month",
+  "aiPriceShortGeminiSaver": "About ₩10k/month",
+  "aiPriceShortGeminiLive": "About ₩40k/month",
+  "aiShortSaverNote": "Replies 1–2 s later",
+  "aiShortLiveNote": "You can interrupt",
+  "aiPriceOpenAiSaver": "About ₩15,000/month",
+  "aiPriceOpenAiLive": "About ₩126,000/month",
+  "aiPriceGeminiSaver": "About ₩10,000/month",
+  "aiPriceGeminiLive": "About ₩40,000/month",
+  "aiDescOpenAiSaver": "You pay only for what people say. Replies come 1–2 seconds later.",
+  "aiDescOpenAiLive": "The most natural and fastest. You pay for the whole connected time (about ₩70 a minute).",
+  "aiDescGeminiSaver": "The cheapest. Replies come 1–2 seconds later.",
+  "aiDescGeminiLive": "Google Gemini real-time talk. About 1/3 the price of OpenAI real-time.",
+  "aiTagInstant": "Instant replies",
+  "aiTagBargeIn": "Interrupt while it talks",
+  "aiTagNoBargeIn": "No interrupting · stop with the middle button",
+  "aiTagOneEighth": "About 1/8 the price",
+  "aiTagCheapest": "Cheapest",
+  "aiPickProvider": "① Choose the AI",
+  "aiPickMode": "② {provider} conversation mode",
+  "@aiPickMode": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiKeyPresent": "Key saved",
+  "aiKeyMissing": "No key · can't use",
+  "aiNotReady": "Coming soon",
+  "aiNotReadyHint": "Not available on this speaker yet. It opens after a speaker update.",
+  "aiAddKey": "Add {provider} key (hold the middle button 3 s → sent over Bluetooth)",
+  "@aiAddKey": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiInfoTitle": "Good to know",
+  "aiInfoBody": "English lessons always use the real-time API (OpenAI) because the teacher must hear pronunciation live. Prices are monthly estimates for 1 hour a day. Changes apply from the next conversation.",
+  "aiNoKeyError": "This speaker has no {provider} key. Please add the key first.",
+  "@aiNoKeyError": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "aiChanged": "Changed. It applies from the next conversation",
+  "aiKeySent": "{provider} key saved on the speaker",
+  "@aiKeySent": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "asstTitle": "Assistant",
+  "asstName": "Name",
+  "asstNameHint": "The wake word stays the same",
+  "asstLanguage": "Speaking language",
+  "asstLanguageKo": "한국어",
+  "asstLanguageEn": "English",
+  "asstLanguageHint": "The language the speaker talks in. Change the app language on the System screen.",
+  "asstVoice": "Voice",
+  "asstVoiceNextTime": "Changes from the next conversation",
+  "asstPurpose": "Role",
+  "asstPurposeHint": "Describe the assistant's role or tone",
+  "asstUnits": "Units",
+  "asstUnitsMetric": "Metric (°C, km)",
+  "asstUnitsImperial": "Imperial (°F, mi)",
+  "asstPlace": "Home area",
+  "asstPlaceBody": "Used for weather and nearby searches. Only the area name is saved on the speaker, never coordinates.",
+  "asstPlaceField": "Area",
+  "asstPlaceExample": "e.g. Gangnam-gu, Seoul",
+  "asstUseCurrentLocation": "Use current location",
+  "asstTimezone": "Time zone",
+  "asstLocationFilled": "Area and time zone filled in. Tap Save",
+  "asstLocationFilledOnlyPlace": "Area filled in. Pick a time zone",
+  "asstTimezoneUnsupported": "The speaker doesn't know your phone's time zone ({tz}). Pick the closest one.",
+  "@asstTimezoneUnsupported": {
+    "placeholders": {
+      "tz": {
+        "type": "String"
+      }
+    }
+  },
+  "asstTimezoneUnknown": "Couldn't read the phone's time zone. Pick the closest one.",
+  "asstTimezoneMore": "Other time zones",
+  "asstLocationServiceOff": "Location is turned off on this phone",
+  "asstLocationDenied": "No location permission. Type the area instead",
+  "asstLocationDeniedForever": "Location permission is off. Turn it on in Settings or type the area",
+  "asstOpenSettings": "Settings",
+  "asstLocationUnavailable": "Couldn't find your location. Type the area instead",
+  "asstWebSearch": "Web search (weather, news)",
+  "asstDeviceControls": "Device controls (volume, radio, memory)",
+  "asstAutoMemory": "Remember things learned in conversation",
+  "asstMemories": "Memories",
+  "asstMemoryCount": "{count}",
+  "@asstMemoryCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "asstSave": "Save",
+  "asstSaved": "Saved",
+  "asstDiscardTitle": "Leave without saving?",
+  "asstDiscardBody": "Your changes will be lost.",
+  "asstDiscard": "Leave",
+  "asstNameEmpty": "Enter a name",
+  "asstTooLong": "Too long (max {max} bytes)",
+  "@asstTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "asstBytes": "{used}/{max} bytes",
+  "@asstBytes": {
+    "placeholders": {
+      "used": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "asstMemoriesNotice": "What the assistant remembers. Deleted items are forgotten from the next conversation.",
+  "asstMemoriesEmpty": "Nothing remembered yet",
+  "asstForget": "Delete",
+  "asstForgetTitle": "Delete this memory?",
+  "asstForgotten": "Deleted",
+  "audioTitle": "Audio & wake word",
+  "audioWakeEnabled": "Wake word",
+  "audioWakeEnabledHint": "When off, talk with the center button only (for TV time)",
+  "audioPhrase": "Wake phrase",
+  "audioPhraseComputer": "Computer",
+  "audioPhraseAlexa": "Alexa",
+  "audioSensitivity": "Sensitivity",
+  "audioSensitivityLow": "Fewer false wakes",
+  "audioSensitivityHigh": "Hears easily",
+  "audioAdvanced": "Advanced",
+  "audioWakeGain": "Wake input boost",
+  "audioWakeGainHint": "Raise only if it misses you from afar",
+  "audioWakeGainValue": "+{db} dB",
+  "@audioWakeGainValue": {
+    "placeholders": {
+      "db": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTest": "Detection test (60 s)",
+  "audioWakeTestRunning": "Testing · {seconds} s left",
+  "@audioWakeTestRunning": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTestHint": "Say “{phrase}” a few times",
+  "@audioWakeTestHint": {
+    "placeholders": {
+      "phrase": {
+        "type": "String"
+      }
+    }
+  },
+  "audioWakeTestCount": "Detected {count} times",
+  "@audioWakeTestCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "audioWakeTestDone": "Detected {count} times in 60 s",
+  "@audioWakeTestDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "audioVolume": "Volume",
+  "audioVolumeValue": "{value} / {max}",
+  "@audioVolumeValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "audioDuck": "Lower music while talking",
+  "audioDb": "{db} dB",
+  "@audioDb": {
+    "placeholders": {
+      "db": {
+        "type": "int"
+      }
+    }
+  },
+  "audioMicGain": "Mic gain",
+  "audioMicGainHint": "Higher picks up quieter voices",
+  "audioAutoGain": "Auto mic level",
+  "audioAutoGainHint": "Adjusts gently to your voice level",
+  "audioTestTone": "Speaker test tone",
+  "audioLed": "LED brightness",
+  "audioPercent": "{value}%",
+  "@audioPercent": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "appTitle": "AI-PA",
+  "splashLoading": "Loading speaker info…",
+  "settingsTheme": "Appearance",
+  "settingsThemeSystem": "System",
+  "settingsThemeLight": "Light",
+  "settingsThemeDark": "Dark",
+  "settingsLanguage": "Language",
+  "commonRetry": "Retry",
+  "commonCancel": "Cancel",
+  "commonOk": "OK",
+  "bleKey2Hint": "Hold the speaker's middle button (Key2) for 3 seconds",
+  "errorUnknown": "Something went wrong",
+  "errorNetwork": "Can't reach the network",
+  "errorCache": "Couldn't read data saved on this phone",
+  "errorDeviceUnreachable": "Can't reach the speaker. Check that your phone and speaker are on the same Wi-Fi",
+  "errorDeviceUnauthorized": "This phone was removed from the speaker. Register it again",
+  "errorDeviceRateLimited": "Try again in a moment",
+  "errorDeviceTimeout": "The speaker isn't responding",
+  "errorDeviceInvalidArg": "The speaker rejected that value",
+  "errorDeviceBusy": "The speaker is busy",
+  "errorDeviceStorage": "The speaker couldn't save it",
+  "errorDeviceNoApiKey": "No OpenAI key yet",
+  "errorDeviceNoWifi": "The speaker isn't on Wi-Fi",
+  "errorDeviceVoiceActive": "Not available during a conversation",
+  "errorDeviceNotFound": "Not found",
+  "errorDeviceOtaTooLarge": "The firmware file is too large",
+  "errorDeviceOtaSignature": "The firmware signature doesn't match",
+  "errorBleAdapterOff": "Turn on Bluetooth",
+  "errorBlePermission": "Bluetooth permission is needed",
+  "errorBleNotFound": "Speaker not found. Did you hold Key2 for 3 seconds?",
+  "errorBleConnect": "Couldn't connect to the speaker over Bluetooth",
+  "errorBleDisconnected": "Bluetooth disconnected",
+  "errorBleBondFailed": "Pairing error. Remove the JARVIS device in Settings > Bluetooth and try again",
+  "errorBleProtocol": "Error while talking to the speaker",
+  "errorBleTimeout": "The speaker isn't responding over Bluetooth",
+  "errorBleWindowClosed": "Setup time ran out. Hold Key2 for 3 seconds to reopen",
+  "errorBlePhonesFull": "The speaker has the maximum number of phones",
+  "errorBleUnsupportedVersion": "Update the app to the latest version",
+  "errorWifiAuth": "Wrong Wi-Fi password",
+  "errorWifiNotFound": "Couldn't find this Wi-Fi",
+  "errorWifiTimeout": "Wi-Fi connection timed out",
+  "errorDeviceNotPlaying": "Nothing is playing",
+  "errorDeviceNoTelegramToken": "The speaker has no Telegram bot token yet",
+  "errorDeviceNotesFull": "The speaker is full of notes (1,000). Delete old events or memos you no longer need",
+  "errorDeviceConflict": "It was just changed on the speaker. Check the new version and edit again",
+  "engTitle": "English teacher",
+  "engHomeSubtitle": "Pronunciation · Basic · Everyday · Business · Advanced",
+  "engIntro": "Pick a course and start free-talking in English with the speaker right away. The teacher corrects your phrasing and pronunciation as you talk.",
+  "engCoursePron": "Pronunciation",
+  "engCoursePronDesc": "Talk freely; mispronounced words get pointed out as you go",
+  "engCourseBasic": "Basic conversation",
+  "engCourseBasicDesc": "Easy everyday talk, slowly. Korean help when you get stuck",
+  "engCourseDaily": "Everyday conversation",
+  "engCourseDailyDesc": "Natural talk in situations like travel, restaurants, hospitals",
+  "engCourseBiz": "Business conversation",
+  "engCourseBizDesc": "Meetings, calls and negotiations in a polite tone",
+  "engCourseAdv": "Advanced conversation",
+  "engCourseAdvDesc": "Current affairs and opinions, English only, polished to sound natural",
+  "engLevelAll": "All levels",
+  "engLevelBeginner": "Beginner",
+  "engLevelEasy": "Easy–mid",
+  "engLevelMid": "Intermediate",
+  "engLevelAdvanced": "Advanced",
+  "engExplain": "Explanations",
+  "engExplainKorean": "Mix in Korean",
+  "engExplainEnglish": "English only",
+  "engSpeed": "Speed",
+  "engSpeedSlow": "Slow",
+  "engSpeedNormal": "Normal",
+  "engLength": "Length",
+  "engMinutes": "{minutes} min",
+  "@engMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "engStart": "Start {course} free talk",
+  "@engStart": {
+    "placeholders": {
+      "course": {
+        "type": "String"
+      }
+    }
+  },
+  "engVoiceHint": "Or say: “Alexa, let's study English”",
+  "engCostNote": "Lessons are up to 5 minutes. OpenAI voice charges apply for the lesson time.",
+  "engLessonTitle": "Free talk",
+  "engFreeTalk": "{course} · free talk",
+  "@engFreeTalk": {
+    "placeholders": {
+      "course": {
+        "type": "String"
+      }
+    }
+  },
+  "engRemaining": "{time} left",
+  "@engRemaining": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "engStarting": "Starting the lesson…",
+  "engListening": "Listening",
+  "engListeningBody": "Talk to the speaker in English. Mistakes are fine; the teacher corrects you as you talk.",
+  "engTopic": "Current topic",
+  "engTopicUnknown": "The teacher is picking a topic",
+  "engChangeTopic": "New topic",
+  "engCorrections": "Corrections from your teacher",
+  "engCorrectionsEmpty": "Corrections show up here (about every 45 seconds)",
+  "engPronunciationBadge": "Sound",
+  "engEnd": "End lesson",
+  "engSummarizing": "Summarizing today's lesson…",
+  "engDoneTitle": "Lesson finished",
+  "engDoneMeta": "{course} free talk · {minutes} min",
+  "@engDoneMeta": {
+    "placeholders": {
+      "course": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "engTodayCorrections": "Corrected today",
+  "engNoCorrections": "No corrections today. Well done!",
+  "engPractice": "Words to practice saying",
+  "engNextTopic": "Topic for next time",
+  "engAgain": "Free talk again",
+  "engHome": "Home",
+  "engLastLesson": "Last lesson summary",
+  "engRealtimeNote": "English lessons use the real-time API (OpenAI) · about ₩70 a minute",
+  "engNeedOpenAiKey": "English lessons need an OpenAI key. Add it in Assistant > AI · Conversation mode.",
+  "homeTitle": "Speaker",
+  "homeAddSpeaker": "Add speaker",
+  "homeSelectSpeaker": "Choose speaker",
+  "homeConnected": "Connected",
+  "homeWifiGood": "Strong Wi-Fi",
+  "homeWifiFair": "Fair Wi-Fi",
+  "homeWifiWeak": "Weak Wi-Fi",
+  "homeIdleTitle": "Listening",
+  "homeIdleBody": "Say “Alexa” or tap the button below",
+  "homeTalkingTitle": "In conversation",
+  "homeTalkingBody": "Ends by itself 60 seconds after you stop talking",
+  "homeConnectingTitle": "Connecting…",
+  "homeStartTalk": "Start talking",
+  "homeStopTalk": "End conversation",
+  "homeNothingPlaying": "Nothing playing",
+  "homeOpenRadio": "Open radio",
+  "homeRadioPlaying": "Radio · playing",
+  "homeRadioPaused": "Radio · paused",
+  "homeRadioBuffering": "Radio · connecting",
+  "homeVolume": "Volume",
+  "homePrevious": "Previous station",
+  "homeNext": "Next station",
+  "homePause": "Pause",
+  "homeResume": "Play",
+  "homeStop": "Stop",
+  "homeTelegram": "Telegram",
+  "homeTelegramUnread": "{count} new",
+  "@homeTelegramUnread": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeTelegramSetup": "Set up",
+  "homeMenuRadio": "Radio",
+  "homeMenuAssistant": "Assistant",
+  "homeMenuAudio": "Audio",
+  "homeMenuSystem": "System",
+  "homeUnreachableTitle": "Can't reach the speaker",
+  "homeUnreachableBody": "Check that your phone and the speaker are on the same Wi-Fi.",
+  "homeFindAgain": "Find again",
+  "homeUnauthorizedTitle": "This phone was removed",
+  "homeUnauthorizedBody": "Hold the speaker's middle button for 3 seconds, then register again.",
+  "homeRegisterAgain": "Register again",
+  "homeEmptyTitle": "No speaker yet",
+  "homeEmptyBody": "Keep your phone close to the speaker and start. A new speaker shows up right away.",
+  "homeComingSoon": "This screen is coming soon",
+  "homeRemoveFromPhone": "Remove from this phone",
+  "notesTitle": "Notes & schedule",
+  "notesHomeToday": "{count} today · {next}",
+  "@notesHomeToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "next": {
+        "type": "String"
+      }
+    }
+  },
+  "notesHomeTodayCount": "{count} events today",
+  "@notesHomeTodayCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notesHomeEmpty": "See notes and events",
+  "notesClockHour": "{hour} o'clock",
+  "@notesClockHour": {
+    "placeholders": {
+      "hour": {
+        "type": "int"
+      }
+    }
+  },
+  "notesClockHourMinute": "{hour}:{minute}",
+  "@notesClockHourMinute": {
+    "placeholders": {
+      "hour": {
+        "type": "int"
+      },
+      "minute": {
+        "type": "String"
+      }
+    }
+  },
+  "notesSearchHint": "Search notes and events",
+  "notesTabEvents": "Events",
+  "notesTabMemos": "Memos",
+  "notesTabTrash": "Trash",
+  "notesGroupToday": "Today · {date}",
+  "@notesGroupToday": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notesGroupTomorrow": "Tomorrow · {date}",
+  "@notesGroupTomorrow": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "notesGroupThisWeek": "This week",
+  "notesGroupLater": "Later",
+  "notesGroupPast": "Past events",
+  "notesAllDay": "All day",
+  "notesBadgeScheduled": "Reminder set",
+  "notesBadgeSent": "Sent",
+  "notesBadgeAcked": "Heard",
+  "notesBadgeNoAnswer": "No answer",
+  "notesBadgeMissed": "Missed",
+  "notesRemindLabel": "Reminder",
+  "notesRemindNone": "No reminder",
+  "notesRemindOnTime": "At start time",
+  "notesRemindSameDay": "Same day {time}",
+  "@notesRemindSameDay": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "notesRemindMinutes": "{n} min before",
+  "@notesRemindMinutes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindHours": "{n} hr before",
+  "@notesRemindHours": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindHoursMinutes": "{h} hr {m} min before",
+  "@notesRemindHoursMinutes": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindDayBefore": "1 day before",
+  "notesRemindDays": "{n} days before",
+  "@notesRemindDays": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRemindCustom": "Custom",
+  "notesRemindHintMany": "You can pick several",
+  "notesRemindHintMax": "Up to 3",
+  "notesRemindSummary": "The speaker will tell you {when}",
+  "@notesRemindSummary": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "notesRemindOff": "Event reminders are turned off in reminder settings",
+  "notesCustomTitle": "How many minutes before?",
+  "notesCustomHelp": "From 1 minute to 7 days (10080 minutes)",
+  "notesCustomUnit": "min before",
+  "notesCustomAdd": "Add",
+  "notesMemoToday": "Today",
+  "notesMemoYesterday": "Yesterday",
+  "notesTrashInfo": "Notes deleted by voice stay here for 30 days.",
+  "notesTrashLeft": "Deleted for good in {days} days",
+  "@notesTrashLeft": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "notesRestore": "Restore",
+  "notesDeleteForever": "Delete for good",
+  "notesVoiceHint": "You can also say: “Alexa, add a hospital visit tomorrow at 3 and remind me an hour before” · “Alexa, make a memo to buy milk” · “Alexa, what's on tomorrow?”",
+  "notesPrivacy": "When you search by voice or get a reminder, the note is sent to the OpenAI conversation. Notes are stored only on the speaker and phones.",
+  "notesNew": "New",
+  "notesOffline": "You can edit on your home Wi-Fi",
+  "notesOfflineBody": "Showing the copy saved on this phone.",
+  "notesEmptyEvents": "No events",
+  "notesEmptyMemos": "No memos",
+  "notesEmptyTrash": "Trash is empty",
+  "notesNoMatch": "Nothing found",
+  "notesEditEvent": "Edit event",
+  "notesEditMemo": "Edit memo",
+  "notesNewEvent": "New event",
+  "notesNewMemo": "New memo",
+  "notesFieldTitle": "Title",
+  "notesFieldBody": "Details",
+  "notesTitleRequired": "Please enter a title",
+  "notesEditHint": "You can edit notes made by voice here too. Changes go to the speaker right away.",
+  "notesSave": "Save",
+  "notesDelete": "Delete",
+  "notesDeleteTitle": "Delete “{title}”?",
+  "@notesDeleteTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "notesDeleteBody": "It will be deleted from the speaker too and can't be restored. It will also disappear from other family phones.",
+  "notesDeleteAction": "Delete",
+  "notesSaved": "Saved",
+  "notesDeleted": "Deleted",
+  "notesRestored": "Restored",
+  "notesSettingsTitle": "Event reminders",
+  "notesSettingsEnabled": "Speaker tells you about events",
+  "notesSettingsEnabledSub": "Also at night, at the time you set",
+  "notesSettingsDefaults": "Default reminders · used when an event has none set",
+  "notesSettingsTimed": "Events with a time",
+  "notesSettingsAllDay": "All-day events",
+  "notesSettingsSameMorning": "Morning of the day",
+  "notesSettingsDayBeforeMorning": "Morning of the day before",
+  "notesSettingsAllDayTime": "Reminder time",
+  "notesSettingsInfoTitle": "Good to know",
+  "notesSettingsInfo": "The speaker opens a short conversation to tell you. Each reminder costs a little OpenAI usage. Without internet, it plays a chime and shows an orange light.",
+  "provTitle": "Speaker setup",
+  "provKeysTitle": "Which AI should it use?",
+  "provKeysBody": "Decide before connecting to the speaker. It's fine to leave the app to copy a key.",
+  "provOpenAiKey": "OpenAI API key",
+  "provOpenAiKeyInvalid": "Enter a key that starts with sk-",
+  "provTelegramToken": "Telegram bot token",
+  "provOptional": "(optional)",
+  "provTelegramTokenHint": "You can also add it later on the Telegram screen.",
+  "provTelegramTokenInvalid": "This is not a 123456789:ABC… token",
+  "provPhoneName": "This phone's name",
+  "provRemember": "Remember keys on this phone",
+  "provRememberHint": "Filled in next time. Stored encrypted in the phone's secure storage.",
+  "provPaste": "Paste",
+  "provFindSpeaker": "Find speaker",
+  "provScanTitle": "Looking for nearby speakers",
+  "provScanHint": "A new speaker shows up right away. For a speaker already set up, hold the middle button (Key2) for 3 seconds.",
+  "provScanFound": "{count} found",
+  "@provScanFound": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "provScanNone": "No speaker found yet",
+  "provScanAgain": "Search again",
+  "provSignalNear": "Very close",
+  "provSignalFar": "Far away",
+  "provConnecting": "Connecting to the speaker…",
+  "provWifiChoiceTitle": "This speaker is already on Wi-Fi",
+  "provWifiChoiceBody": "Keep it and we register right away without restarting.",
+  "provWifiKeep": "Keep current Wi-Fi",
+  "provWifiChange": "Change Wi-Fi",
+  "provWifiTitle": "Choose the speaker's Wi-Fi",
+  "provWifiScanning": "The speaker is scanning for Wi-Fi…",
+  "provWifiNote": "The speaker supports 2.4 GHz Wi-Fi only. The speaker found this list itself.",
+  "provWifiOpen": "Open",
+  "provWifiManual": "Enter a Wi-Fi that's not listed",
+  "provWifiName": "Wi-Fi name",
+  "provWifiPassword": "Password",
+  "provWifiPasswordTitle": "Password for {ssid}",
+  "@provWifiPasswordTitle": {
+    "placeholders": {
+      "ssid": {
+        "type": "String"
+      }
+    }
+  },
+  "provWifiShowPassword": "Show password",
+  "provWifiConnect": "Connect",
+  "provWifiConnecting": "Connecting to {ssid}… (up to 20 s)",
+  "@provWifiConnecting": {
+    "placeholders": {
+      "ssid": {
+        "type": "String"
+      }
+    }
+  },
+  "provWifiRescan": "Scan again",
+  "provSending": "Saving keys and registering this phone…",
+  "provPhonesFullTitle": "The speaker has the maximum number of phones",
+  "provPhonesFullBody": "Pick one to remove and this phone takes its place.",
+  "provPhonesFullAction": "Remove and register this phone",
+  "provDiscovering": "The speaker is restarting. Looking for it on your Wi-Fi…",
+  "provDoneTitle": "All set",
+  "provDoneBody": "When you hear “AI speaker is ready”, say “Alexa”.",
+  "provDoneWifi": "Wi-Fi connected",
+  "provDoneKey": "Keys saved",
+  "provDonePair": "This phone registered",
+  "provDoneFound": "Found the speaker on Wi-Fi ({host})",
+  "@provDoneFound": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "provDoneNotFound": "Not found on your Wi-Fi yet. You can search again from Home.",
+  "provGoHome": "Go home",
+  "provFailedTitle": "Setup didn't finish",
+  "provCancel": "Cancel",
+  "provAiSection": "① AI",
+  "provRequired": "(required)",
+  "provKeyTyped": "Key entered. It is sent to the speaker only over Bluetooth.",
+  "provKeyExistingHint": "After connecting we check that the speaker has this key. If not, this AI can't be chosen.",
+  "provKeyRequiredHint": "This AI needs a key.",
+  "provExistingKey": "This speaker already has this AI's key (adding another phone)",
+  "provModeSection": "② Conversation mode",
+  "provModeLater": "(you can change it later in Assistant settings)",
+  "provMore": "More (optional): {other} key · Telegram token",
+  "@provMore": {
+    "placeholders": {
+      "other": {
+        "type": "String"
+      }
+    }
+  },
+  "provMoreOtherHint": "Add the {other} key too and you can switch AI anytime later.",
+  "@provMoreOtherHint": {
+    "placeholders": {
+      "other": {
+        "type": "String"
+      }
+    }
+  },
+  "provKeyBlocked": "Enter the {key} to continue",
+  "@provKeyBlocked": {
+    "placeholders": {
+      "key": {
+        "type": "String"
+      }
+    }
+  },
+  "provMissingKey": "This speaker has no {provider} key. Enter the key or choose another AI.",
+  "@provMissingKey": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "provMaybeNotReady": "(may not be ready yet on some speakers)",
+  "provNotReady": "This speaker can't use {provider} yet (coming soon). Choose another AI, or update the speaker and try again.",
+  "@provNotReady": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "radioTitle": "Radio",
+  "radioSearch": "Find stations",
+  "radioEdit": "Edit",
+  "radioPlaying": "Playing",
+  "radioPaused": "Paused",
+  "radioBuffering": "Connecting",
+  "radioNothingPlaying": "Nothing is playing",
+  "radioPickStation": "Pick a station below",
+  "radioPlay": "Play",
+  "radioPause": "Pause",
+  "radioResume": "Resume",
+  "radioStop": "Stop",
+  "radioPrevious": "Previous station",
+  "radioNext": "Next station",
+  "radioGroupKorean": "Korean music",
+  "radioGroupNews": "News & business",
+  "radioGroupTalk": "Talk",
+  "radioGroupOther": "Other",
+  "radioEmpty": "No saved stations yet. Use Find stations to add some",
+  "radioNotPlaying": "No station is playing right now",
+  "radioEditTitle": "Edit stations",
+  "radioEditHint": "Drag to reorder. Save to update the speaker",
+  "radioCount": "{count} / {max}",
+  "@radioCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "radioSave": "Save",
+  "radioSaved": "Saved",
+  "radioAddCustom": "Add by URL",
+  "radioRename": "Rename",
+  "radioDelete": "Delete",
+  "radioDeleteTitle": "Delete {name}?",
+  "@radioDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "radioDiscardTitle": "Discard your changes?",
+  "radioDiscard": "Discard",
+  "radioFormName": "Name",
+  "radioFormUrl": "Stream URL",
+  "radioFormUrlHint": "An MP3 or AAC stream starting with http:// or https://",
+  "radioFormGenre": "Genre tags",
+  "radioFormGenreHint": "Separate with commas (e.g. jazz,english)",
+  "radioFormAdd": "Add",
+  "radioErrTooMany": "You can save up to {max} stations",
+  "@radioErrTooMany": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "radioErrNameEmpty": "Enter a name",
+  "radioErrNameTooLong": "Name is too long (48 bytes max)",
+  "radioErrUrlInvalid": "Only http:// or https:// URLs work",
+  "radioErrUrlTooLong": "URL is too long (256 characters max)",
+  "radioErrGenreTooLong": "Genre tags are too long (64 characters max)",
+  "radioErrTooLarge": "The list is too large. Shorten some names or URLs",
+  "radioErrDuplicate": "This station is already saved",
+  "radioSearchTitle": "Find stations",
+  "radioSearchByName": "Name",
+  "radioSearchByTag": "Genre",
+  "radioSearchNameHint": "Station name (e.g. BBC, jazz)",
+  "radioSearchTagHint": "Genre tag (e.g. jazz, kpop, news)",
+  "radioSearchHlsNote": "Korean broadcasters like KBS, MBC and SBS only stream in HLS, which the speaker can't play, so they don't appear",
+  "radioSearchIdle": "Search by name or genre. Only stations the speaker can play are shown",
+  "radioSearchNoResults": "No stations the speaker can play",
+  "radioSearchFailed": "Couldn't get the station list. Check your internet connection",
+  "radioSearchAdd": "Add",
+  "radioSearchAdded": "Added",
+  "radioSearchPlayNow": "Play now",
+  "radioAdded": "Added {name}",
+  "@radioAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "radioKbps": "{kbps} kbps",
+  "@radioKbps": {
+    "placeholders": {
+      "kbps": {
+        "type": "int"
+      }
+    }
+  },
+  "sysTitle": "System",
+  "sysFirmware": "Firmware",
+  "sysUptime": "Uptime",
+  "sysWifi": "Wi-Fi signal",
+  "sysWifiGood": "Good ({dbm} dBm)",
+  "@sysWifiGood": {
+    "placeholders": {
+      "dbm": {
+        "type": "int"
+      }
+    }
+  },
+  "sysWifiFair": "Fair ({dbm} dBm)",
+  "@sysWifiFair": {
+    "placeholders": {
+      "dbm": {
+        "type": "int"
+      }
+    }
+  },
+  "sysWifiWeak": "Weak ({dbm} dBm)",
+  "@sysWifiWeak": {
+    "placeholders": {
+      "dbm": {
+        "type": "int"
+      }
+    }
+  },
+  "sysWifiNone": "Not connected",
+  "sysIp": "IP address",
+  "sysUptimeDays": "{days} d {hours} h",
+  "@sysUptimeDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "sysUptimeHours": "{hours} h {minutes} min",
+  "@sysUptimeHours": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "sysUptimeMinutes": "{minutes} min",
+  "@sysUptimeMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "sysPhonesTitle": "Registered phones ({count} / {max})",
+  "@sysPhonesTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "sysPhoneSelf": "This phone",
+  "sysPhoneCreated": "Added {date}",
+  "@sysPhoneCreated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "sysPhoneRevoke": "Revoke",
+  "sysPhoneRevokeTitle": "Revoke {name}?",
+  "@sysPhoneRevokeTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sysPhoneRevokeBody": "That phone can no longer control the speaker. It has to register again to use it.",
+  "sysPhoneRevoked": "Phone revoked",
+  "sysPhonesFailed": "Couldn't load the phone list",
+  "sysMenuKeys": "Keys",
+  "sysMenuKeysHint": "OpenAI key, Telegram bot token",
+  "sysMenuApp": "App settings",
+  "sysMenuAppHint": "Theme, language",
+  "sysDiagnostics": "Diagnostics",
+  "sysBuildDate": "Build",
+  "sysResetReason": "Last start reason",
+  "sysResetPowerOn": "Power on",
+  "sysResetSoftware": "Restart",
+  "sysResetCrash": "Restarted after an error",
+  "sysResetWatchdog": "Restarted after a hang",
+  "sysResetBrownout": "Low power",
+  "sysResetOther": "Other ({code})",
+  "@sysResetOther": {
+    "placeholders": {
+      "code": {
+        "type": "int"
+      }
+    }
+  },
+  "sysHeapFree": "Internal RAM free",
+  "sysHeapMin": "Internal RAM lowest",
+  "sysPsramFree": "PSRAM free",
+  "sysKb": "{value} KB",
+  "@sysKb": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "sysFailures": "Recent failures",
+  "sysNoFailures": "None",
+  "sysReboot": "Restart speaker",
+  "sysRebootTitle": "Restart the speaker?",
+  "sysRebootBody": "Playback stops and it reconnects in about 30 seconds.",
+  "sysRebootAction": "Restart",
+  "sysRebooting": "Restarting…",
+  "sysFactoryResetTitle": "Factory reset",
+  "sysFactoryResetBody": " is done on the speaker. Hold the middle button for 10 seconds to erase all settings and registrations.",
+  "sysForget": "Remove speaker from this phone",
+  "sysForgetTitle": "Remove this speaker from this phone?",
+  "sysForgetBody": "If the speaker is reachable, this phone's registration is revoked too. Otherwise it stays on the speaker; revoke it from another phone.",
+  "sysForgetAction": "Remove",
+  "sysKeysTitle": "Keys",
+  "sysKeysPhoneSection": "Keys remembered on this phone",
+  "sysKeysPhoneHint": "Filled in when you set up a speaker. Stored encrypted in the phone's secure storage.",
+  "sysKeysSpeakerSection": "Keys on the speaker",
+  "sysKeysSpeakerHint": "Keys are sent over Bluetooth only. Stay near the speaker.",
+  "sysKeyOpenAi": "OpenAI API key",
+  "sysKeyTelegram": "Telegram bot token",
+  "sysKeySaved": "Saved",
+  "sysKeyNotSaved": "Not set",
+  "sysKeyUnknown": "Unknown",
+  "sysKeyForget": "Delete",
+  "sysKeyForgetTitle": "Delete this key from the phone?",
+  "sysKeyForgetBody": "The key on the speaker stays.",
+  "sysKeyReplace": "Replace",
+  "sysKeyAdd": "Add",
+  "sysKeyDelete": "Delete",
+  "sysKeyDeleteTitle": "Delete this key from the speaker?",
+  "sysKeyDeleteBodyOpenAi": "If the speaker uses OpenAI, it can't talk. English lessons also stop working.",
+  "sysKeyDeleteBodyTelegram": "Telegram messages stop arriving.",
+  "sysKeyDeleted": "Deleted from the speaker",
+  "sysKeySend": "Send to speaker",
+  "sysKeySending": "Finding the speaker and sending…",
+  "sysKeySent": "Saved on the speaker",
+  "sysKeyInvalidOpenAi": "Enter a key that starts with sk-",
+  "sysKeyInvalidTelegram": "This is not a 123456789:ABC… token",
+  "sysPaste": "Paste",
+  "sysAppTitle": "App settings",
+  "sysAppHint": "Applies to this phone only.",
+  "sysLanguageSystem": "Use phone language",
+  "sysLanguageKo": "한국어",
+  "sysLanguageEn": "English",
+  "sysKeyGemini": "Gemini API key",
+  "sysKeyDeleteBodyGemini": "If the speaker uses Gemini, it can't talk.",
+  "sysKeyInvalidGemini": "A Gemini key starts with AIza and has only letters, digits, - and _ (check nothing like :wq got pasted at the end)",
+  "tgTitle": "Telegram",
+  "tgConnectTitle": "Connect Telegram",
+  "tgStep1Title": "Create a bot and get its token",
+  "tgStep1Body": "Send /newbot to BotFather to create a bot just for this speaker, then copy the token.",
+  "tgOpenBotFather": "Open BotFather",
+  "tgStep2Title": "Check the token and save it to the speaker",
+  "tgTokenLabel": "Bot token",
+  "tgTokenShow": "Show token",
+  "tgTokenHide": "Hide token",
+  "tgCheckToken": "Check token",
+  "tgTokenChecking": "Checking…",
+  "tgTokenValid": "@{bot} verified",
+  "@tgTokenValid": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      }
+    }
+  },
+  "tgTokenSaved": "@{bot} verified · saved to the speaker",
+  "@tgTokenSaved": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      }
+    }
+  },
+  "tgTokenInvalid": "That token doesn't work. Paste the token exactly as BotFather gave it",
+  "tgTokenNetwork": "Can't reach Telegram. Check your internet connection",
+  "tgKey2Body": "The token goes to the speaker over Bluetooth only, never over Wi-Fi.",
+  "tgSaveToSpeaker": "Save to speaker",
+  "tgSaving": "Finding the speaker and saving…",
+  "tgStep3Title": "Register a family chat",
+  "tgPairBody": "In the chat you want to add (private or family group), send this to the bot.",
+  "tgPairGroupHint": "In a group: /pair@{bot} {code}",
+  "@tgPairGroupHint": {
+    "placeholders": {
+      "bot": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "tgPairRemaining": "{min}m {sec}s left · works only once",
+  "@tgPairRemaining": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "sec": {
+        "type": "int"
+      }
+    }
+  },
+  "tgCopy": "Copy",
+  "tgCopied": "Copied",
+  "tgOpenTelegram": "Open Telegram",
+  "tgOpenFailed": "Couldn't open Telegram",
+  "tgPairWaiting": "Waiting for the chat…",
+  "tgPairExpired": "The code expired. Get a new one",
+  "tgPairNewCode": "Get a new code",
+  "tgPairGetCode": "Get a code",
+  "tgPairLocked": "Save the token to the speaker to get a code",
+  "tgPairNoToken": "The speaker has no bot token yet. Save the token first",
+  "tgPaired": "Added the chat “{name}”",
+  "@tgPaired": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDone": "Done",
+  "tgAddAnother": "Add another chat",
+  "tgAddChatTitle": "Add a chat",
+  "tgReplaceToken": "Change token",
+  "tgStateOk": "Connected",
+  "tgStateConnecting": "Connecting",
+  "tgStateOff": "Not connected",
+  "tgStateConflict": "The bot is in use elsewhere",
+  "tgStateConflictBody": "If another program uses the same bot, the speaker can't get messages. Create a bot just for this speaker and change the token.",
+  "tgStateTokenInvalid": "The token doesn't work",
+  "tgStateTokenInvalidBody": "The bot token was changed or revoked. Enter a new token.",
+  "tgUnread": "{count} unread",
+  "@tgUnread": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tgChatsTitle": "Registered chats",
+  "tgAddChat": "+ Add",
+  "tgChatsEmpty": "No chats yet. Tap “+ Add” to register a family chat.",
+  "tgChatsHint": "Call chats by their alias, like “Tell Mom I'll be late.”",
+  "tgChatPrivate": "Private chat",
+  "tgChatGroup": "Group",
+  "tgChatChannel": "Channel",
+  "tgRenameLabel": "Rename {alias}",
+  "@tgRenameLabel": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDeleteLabel": "Delete {alias}",
+  "@tgDeleteLabel": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgRenameTitle": "Change alias",
+  "tgAliasHelp": "The name you say to the speaker",
+  "tgAliasEmpty": "Enter an alias",
+  "tgAliasTooLong": "Too long (up to 32 letters)",
+  "tgSave": "Save",
+  "tgDeleteTitle": "Delete “{alias}”?",
+  "@tgDeleteTitle": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "tgDeleteBody": "The speaker will stop getting messages from this chat. You'll need a new code to add it again.",
+  "tgDeleteAction": "Delete",
+  "tgNotifyTitle": "Message alerts",
+  "tgAutoRead": "Read new messages aloud",
+  "tgAutoReadBody": "When off, you hear a chime and can say “Read my messages”",
+  "tgQuietHours": "Quiet hours",
+  "tgQuietStart": "Start",
+  "tgQuietEnd": "End"
+}
