@@ -5,8 +5,8 @@
 
 『클로드 코드로 만드는 우리 집 AI 스피커』(이범익 지음, 유페이퍼)의 완성 소스입니다.
 
-Waveshare ESP32-S3-AUDIO-Board로 만든 가족용 AI 스피커 펌웨어와, 스피커를 설정하는 Android 앱 **AI-PA**가 들어 있습니다. 책의 21장까지 마친 **완성본 하나**만 있고, 장별 중간 단계는 따로 두지 않았습니다.
-[Waveshare ESP32-S3-AUDIO-Board 소개](https://docs.waveshare.com/ESP32-S3-AUDIO-Board)
+[Waveshare ESP32-S3-AUDIO-Board](https://docs.waveshare.com/ESP32-S3-AUDIO-Board)로 만든 가족용 AI 스피커 펌웨어와, 스피커를 설정하는 Android 앱 **AI-PA**가 들어 있습니다. 책의 21장까지 마친 **완성본 하나**만 있고, 장별 중간 단계는 따로 두지 않았습니다.
+
 
 - "Computer"(또는 "Alexa")라고 부르면 한국어로 대답하는 음성 비서
 - OpenAI 또는 Google Gemini 중 하나 이상의 API 키로 동작 (실시간 모드 / 절약 모드)
