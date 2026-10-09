@@ -1,5 +1,8 @@
 # home-ai-speaker
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/bumicklee)
+
+
 『클로드 코드로 만드는 우리 집 AI 스피커』(이범익 지음, 유페이퍼)의 완성 소스입니다.
 
 Waveshare ESP32-S3-AUDIO-Board로 만든 가족용 AI 스피커 펌웨어와, 스피커를 설정하는 Android 앱 **AI-PA**가 들어 있습니다. 책의 21장까지 마친 **완성본 하나**만 있고, 장별 중간 단계는 따로 두지 않았습니다.
