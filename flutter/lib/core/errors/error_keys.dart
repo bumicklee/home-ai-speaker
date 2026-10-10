@@ -1,4 +1,4 @@
-/// 오류 → ARB 키. 모든 Failure는 errorKey를 반드시 채운다 (led-app은 비워 둬서 현지화가 안 됐다).
+/// 오류 → ARB 키. 모든 Failure는 errorKey를 반드시 채운다 (비워 두면 현지화가 안 된다).
 /// 키 이름은 `app_ko.arb`·`app_en.arb`와 같아야 한다.
 library;
 

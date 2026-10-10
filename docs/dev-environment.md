@@ -130,7 +130,7 @@ flutter pub get
 flutter run           # 연결된 휴대폰 또는 시뮬레이터
 ```
 
-- led-app과 같은 조건(Dart ≥3.10.4, Flutter ≥3.38.4)을 만족합니다.
+- 최소 조건(Dart ≥3.10.4, Flutter ≥3.38.4)을 만족합니다.
 - iOS 빌드에는 Xcode와 CocoaPods가, Android 빌드에는 Android SDK가 필요합니다. `flutter doctor`로 확인합니다.
 - `flutter upgrade` 안내가 나와도, 앱 버전을 고정하기 위해 팀이 정할 때까지 올리지 않습니다.
 

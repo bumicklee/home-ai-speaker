@@ -1,6 +1,6 @@
 /**
  * @file settings.h
- * @brief 일반 설정 저장소 (설계서 2.12절, led-app nvs_storage 방식)
+ * @brief 일반 설정 저장소 (설계서 2.12절, NVS 키-값 저장)
  *
  * 항목별로 타입이 정해진 get/set 함수를 둔다. 저장값이 없거나 범위를 벗어나면
  * 기본값을 돌려준다. 비밀값은 secret_store.h를 쓴다.
@@ -40,7 +40,7 @@ esp_err_t settings_init(void);
 bool      settings_is_provisioned(void);
 esp_err_t settings_set_provisioned(bool provisioned);
 
-/* Wi-Fi (led-app과 같은 키) */
+/* Wi-Fi */
 bool      settings_has_wifi(void);
 esp_err_t settings_get_wifi(char ssid[33], char password[65]);
 esp_err_t settings_set_wifi(const char *ssid, const char *password);

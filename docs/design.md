@@ -23,7 +23,7 @@
 
 ### 서버 없는 구조 원칙
 
-이 프로젝트는 백엔드 서버, 데이터베이스, 푸시 서버, 중계(relay) 서버를 만들지 않는다. led-app에 있던 API 서버·MQTT 브로커·Supabase·FCM에 해당하는 것이 없다.
+이 프로젝트는 백엔드 서버, 데이터베이스, 푸시 서버, 중계(relay) 서버를 만들지 않는다. API 서버·MQTT 브로커·Supabase·FCM 같은 것이 없다.
 
 | 통신 | 방식 | 서버 필요 여부 |
 |:--|:--|:--|
@@ -46,20 +46,18 @@
 
 ### 이번 설계에서 바뀐 점 (기획서 대비)
 
-- **BLE 프로비저닝을 ESP-IDF `network_provisioning` 대신, led-app 방식의 커스텀 NimBLE GATT로 바꾼다.** led-app의 Wi-Fi 서비스(0xFF50)와 기기 정보 서비스(0xFF60) 규격을 기반으로 한다. 단, led-app 앱에서 실제로 쓰인 것은 SSID·비밀번호·상태·완료 흐름뿐이고, Wi-Fi 스캔(0xFF54)과 기기 정보(0xFF60)는 새로 검증해야 한다. led-app의 완료 처리 결함(Wi-Fi 덮어쓰기)과 상태 중복 전송도 고친다(2.13절).
-- 대신 led-app에 없던 **BLE 링크 암호화**(LE Secure Connections)를 추가한다. API 키 같은 비밀값이 BLE로 오가기 때문이다(2.13절 보안).
+- **BLE 프로비저닝을 ESP-IDF `network_provisioning` 대신, 직접 정의한 커스텀 NimBLE GATT로 바꾼다.** Wi-Fi 서비스(0xFF50)와 기기 정보 서비스(0xFF60)를 기본으로 한다. Wi-Fi 스캔(0xFF54)과 기기 정보(0xFF60)는 새로 검증해야 한다. 완료 처리 때 Wi-Fi를 덮어쓰는 결함과 상태 중복 전송은 규칙으로 막는다(2.13절).
+- 대신 **BLE 링크 암호화**(LE Secure Connections)를 추가한다. API 키 같은 비밀값이 BLE로 오가기 때문이다(2.13절 보안).
 
 ---
 
 ## 1. 재사용 기준
 
-세 가지 기존 코드에서 검증된 부분을 가져온다.
+기존 코드에서 검증된 부분을 가져온다. 펌웨어 모듈 구조와 코딩 규칙은 2.2절, 앱 구조 규칙은 3.3절에 따로 정한다.
 
 | 출처 | 가져올 것 | 버릴 것 / 고칠 것 |
 |:--|:--|:--|
 | `waveshare-ai-speaker-assistant/firmware` | 코덱·I2S 초기화(**16kHz 구성만 실기기 검증됨**), AEC 채널 매핑, 재생 큐(프리필·부분 프레임 플러시), WakeNet 수명 관리, `gpt-live-1` 세션·위임·툴 처리, 종료 문구 매처, LED 링 표현 | SoftAP 설정 포털, USB `HV` 프로토콜, eFuse 자동 처리, 압축된 한 줄 코드 스타일, 로그 전체 끔 |
-| `led-app/firmware` (ESP32-C5) | 모듈 구조와 코딩 규칙, `app_config.h` 중앙 설정, NimBLE GATT 프로비저닝(FF50/FF60, 콜백 구조체), `wifi_manager`(지수 백오프, DHCP 워치독, 끊김 사유 매핑), `nvs_storage` API 형태, 버튼 누름 시간 구분(짧게/길게), 상태 LED 패턴 태스크, 프로비저닝 완료 후 타이머 재부팅 | MQTT·백엔드 서버, 모듈 간 순환 참조, 이중 `nvs_flash_init()`, GATT 콜백 안에서 블로킹 스캔, 암호화 없는 BLE 쓰기, 완료 시 Wi-Fi 무조건 저장, 상태 중복 전송, 버튼 ISR(이 보드는 버튼이 I2C 확장 칩에 있어 폴링만 가능) |
-| `led-app/flutter-app` | 기능별 Clean Architecture(data/domain/presentation), `flutter_bloc` + `equatable`, `get_it`(`sl`) DI, `dartz` `Either<Failure, T>`, Exception → Failure 변환, `ErrorKeys` + `ErrorLocalizer` + ARB(ko/en), `SettingsCubit`, Dio `ApiClient` 래퍼, 서비스 스트림 → BLoC 이벤트 패턴, `flutter_blue_plus` 사용 방식 | Supabase·FCM·로그인·MQTT, 페이지 안에 BLE 로직을 직접 넣은 구조(`ble_scan_page.dart` 1,100줄, `wifi_config_page.dart` 1,218줄), BLE `remoteId`를 MAC으로 쓰는 방식(iOS에서 동작 안 함), 실제 펌웨어와 맞지 않는 `ble_constants.dart`, 반복되는 try/catch 보일러플레이트 |
 
 ---
 
@@ -121,7 +119,7 @@
 
 ### 2.1 디렉토리 구조
 
-led-app의 "모듈 = `.c` + `include/*.h`" 규칙을 유지한다. 규모가 커서 `main/` 하나가 아니라 ESP-IDF 컴포넌트로 나눈다. `app_config.h`·`board_config.h`는 `components/`의 모듈들도 써야 하므로 `main/`이 아니라 헤더 전용 컴포넌트 `app_config`에 둔다(컴포넌트가 `main`에 의존하지 않게).
+"모듈 = `.c` + `include/*.h`" 규칙을 따른다. 규모가 커서 `main/` 하나가 아니라 ESP-IDF 컴포넌트로 나눈다. `app_config.h`·`board_config.h`는 `components/`의 모듈들도 써야 하므로 `main/`이 아니라 헤더 전용 컴포넌트 `app_config`에 둔다(컴포넌트가 `main`에 의존하지 않게).
 
 ```
 firmware/
@@ -132,7 +130,7 @@ firmware/
     main.c                    부팅 흐름, 시스템 상태머신
   components/
     app_config/               헤더만 있는 컴포넌트
-      include/app_config.h    버전, 타이밍, 기능 플래그 (led-app 방식)
+      include/app_config.h    버전, 타이밍, 기능 플래그 (한곳에 모은 설정)
       include/board_config.h  핀·I2C 주소 (검증된 값만)
     app_events/               esp_event 기반 앱 이벤트 버스 (순환 참조 제거용)
     board/                    codec(ES8311/ES7210), io_expander(TCA9555), led_ring(WS2812×7), buttons, rtc(PCF85063)
@@ -143,7 +141,7 @@ firmware/
     media_radio/              HTTP/ICY 스트림, 재생목록 해석, 디코드
     media_spotify/            Connect 수신기(cspot 계열 래퍼) + Web API 클라이언트 + 토큰 갱신
     messenger_telegram/       getUpdates 롱폴링, sendMessage, /pair 등록, 수신 링버퍼
-    net/                      wifi_manager(led-app 이식), sntp, mdns
+    net/                      wifi_manager, sntp, mdns
     settings/                 nvs_storage(일반 설정), secret_store(비밀값), 스키마 버전 마이그레이션
     ble_prov/                 NimBLE GATT 서버(FF50/FF60/FF80), 링크 암호화
     local_api/                HTTP REST + WebSocket 이벤트, OTA 업로드
@@ -166,12 +164,12 @@ firmware/
 
 `main/CMakeLists.txt`와 각 컴포넌트의 `REQUIRES`에는 실제로 쓰는 IDF 컴포넌트(`esp_driver_i2c`, `esp_driver_i2s`, `esp_driver_rmt`, `nvs_flash`, `esp_wifi`, `esp_http_server` 등)를 모두 적는다. 공식 예제는 `REQUIRES`를 하나도 적지 않고 다른 관리 컴포넌트에 기대어 빌드되는데, 의존을 하나 빼면 갑자기 빌드가 깨진다. `CONFIG_ESP_WS_CLIENT_SEPARATE_TX_LOCK`는 `esp_websocket_client` 컴포넌트가 있어야 효과가 있다.
 
-### 2.2 코딩 규칙 (led-app 기준)
+### 2.2 코딩 규칙
 
 - 파일마다 `static const char *TAG = "MODULE";`. 정적 상태 변수는 `s_` 접두어.
 - 공개 API는 `모듈_init()` / `모듈_start()` / `모듈_stop()` / `모듈_is_xxx()` 형태로 통일한다.
-- 상위 모듈에 알릴 일은 **콜백 구조체**(led-app의 `ble_gatt_callbacks_t` 방식) 또는 **`app_events` 이벤트**로 보낸다. 하위 모듈이 상위 모듈 헤더를 include하지 않는다.
-  - led-app에서는 `wifi_manager.c`가 `ble_prov.h`와 `mqtt_client_app.h`를 include하고, `button_handler.c`가 거의 모든 모듈을 include한다. 이런 순환 참조를 이 프로젝트에서는 금지한다.
+- 상위 모듈에 알릴 일은 **콜백 구조체**(예: `ble_gatt_callbacks_t`) 또는 **`app_events` 이벤트**로 보낸다. 하위 모듈이 상위 모듈 헤더를 include하지 않는다.
+  - 흔히 `wifi_manager.c`가 `ble_prov.h`를 include하고, 버튼 처리 파일이 거의 모든 모듈을 include하게 되기 쉽다. 이런 순환 참조를 이 프로젝트에서는 금지한다.
 - 대기는 EventGroup 비트로 한다(`xxx_wait_connected(timeout_ms)`).
 - 로그는 켠다(`CONFIG_LOG_DEFAULT_LEVEL_INFO`). 단 `CONFIG_LOG_MAXIMUM_LEVEL_INFO`로 DEBUG 이하를 빌드에서 빼서, HTTP·WebSocket 클라이언트가 URL·헤더를 찍지 않게 한다(Telegram 봇 토큰은 URL 안에 있다). 비밀값과 Wi-Fi 비밀번호는 길이만 찍는다. URL, 메시지 본문, 전사(transcript), 외부 서비스 응답 본문은 로그와 진단에 남기지 않는다.
 - 시간 상수(무응답 60초, 대화 최대 10분, 종료 후 사용량 대기 15초, Wi-Fi 연결 판정 20초, BLE 창 5분/최대 15분 등)는 `app_config.h`에 둔다.
@@ -202,7 +200,7 @@ typedef enum {
 
 ### 2.4 부팅 흐름
 
-led-app의 부팅 순서를 확장한다.
+부팅 순서는 다음과 같다.
 
 ```mermaid
 flowchart TD
@@ -219,7 +217,7 @@ flowchart TD
   G -->|완료| R[2초 후 재부팅]
 ```
 
-- led-app처럼 **Wi-Fi 실패만으로는 프로비저닝 모드에 들어가지 않는다.** 백그라운드 재시도를 계속하고, 사용자가 Key2 3초로 BLE 창을 연다.
+- **Wi-Fi 실패만으로는 프로비저닝 모드에 들어가지 않는다.** 백그라운드 재시도를 계속하고, 사용자가 Key2 3초로 BLE 창을 연다.
 - `nvs_flash_init()` 계열 호출은 `settings_init()` 한 곳에서만 한다.
 
 ### 2.5 시스템 상태 (두 축)
@@ -335,7 +333,7 @@ const radio_status_t *radio_get_status(void);   // state, title, icy_title, bitr
 - 구현: ESP-GMF `esp_audio_simple_player`를 쓴다. 공식 예제(`factory_01`, `mp3_play_03`)가 `esp_asp_cfg_t.out.cb`로 해독된 PCM을 받아 직접 코덱에 쓰는 방식을 이미 쓰고 있으므로, 같은 콜백으로 PCM을 믹서 `MUSIC` 채널에 넣는다(Q1 해결). 출력 샘플링 레이트는 `CONFIG_AUDIO_SIMPLE_PLAYER_RESAMPLE_DEST_RATE`로 믹서 레이트(48kHz 안 또는 16kHz)에 맞춘다(공식 예제는 16000).
 - 공식 예제의 `esp_audio_play()`처럼 매 재생마다 `malloc`하거나 샘플을 정수배로 반복하는 변환은 쓰지 않는다. 버퍼는 시작할 때 한 번 PSRAM에 잡고, 레이트 변환은 플레이어 설정 또는 `esp_audio_effects`를 쓴다.
 - 입력이 HTTP 스트림이면 URL을 `http://…`로 넘긴다(공식 예제는 `file://sdcard/…`). 스트림 지원 범위(ICY 메타데이터, `.pls`/`.m3u`)는 Phase 0에서 확인하고, 부족하면 `esp_http_client`로 받아 플레이어 입력 콜백(`in.cb`)에 넣는다.
-- 처리할 것: `.pls`/`.m3u` 해석, 302 리다이렉트, ICY 메타데이터, HTTPS, 끊김 시 재연결(1s → 30s 지수 백오프, led-app `wifi_manager` 방식).
+- 처리할 것: `.pls`/`.m3u` 해석, 302 리다이렉트, ICY 메타데이터, HTTPS, 끊김 시 재연결(1s → 30s 지수 백오프, `wifi_manager`와 같은 방식).
 - 프리셋은 최대 20개, `storage`(littlefs) 파티션의 `/presets.json`에 저장한다(URL이 길어 NVS 문자열 한도 4,000B를 넘을 수 있음). 마지막으로 재생한 방송은 NVS `media.last_preset`/`last_url`에 둔다.
 - 재연결은 5회까지. 5회 연속 실패하면 정지하고 안내음을 낸다(RAD-06).
 
@@ -457,13 +455,13 @@ esp_err_t telegram_begin_pairing(char code_out[7]);  // 6자리, 5분 유효
 
 ### 2.12 설정과 저장소 (`settings`)
 
-led-app `nvs_storage`처럼 항목별로 타입이 정해진 `save/load/has/clear` 함수를 둔다. 비밀값만 `secret_store`로 분리한다.
+항목별로 타입이 정해진 `save/load/has/clear` 함수를 둔다. 비밀값만 `secret_store`로 분리한다.
 
 | 파티션 | 네임스페이스 | 키 | 타입 | 기본값 |
 |:--|:--|:--|:--|:--|
 | nvs | `prov` | `provisioned` | u8 | 0 |
 | nvs | `prov` | `schema` | u16 | 1 (마이그레이션용) |
-| nvs | `wifi` | `ssid`, `password` | str | — (led-app과 같은 키) |
+| nvs | `wifi` | `ssid`, `password` | str | — |
 | nvs | `audio` | `volume` 0–80, `mic_gain` 0–36, `auto_gain`, `duck_db` 0–40, `sp_pause_voice` | i32/u8 | 40, 24, 0, 20, 0 |
 | nvs | `led` | `brightness` 0–100 | u8 | 60 |
 | nvs | `sys` | `last_reset`(재부팅 사유·시각), `fail_log`(최근 실패 5건, 고정 코드) | blob | — |
@@ -485,13 +483,13 @@ esp_err_t secret_erase(secret_id_t id);
 ```
 BLE와 LAN 어느 쪽으로도 `secret_get` 결과를 내보내지 않는다. 앱은 "저장됨 여부"만 볼 수 있다.
 
-공장 초기화(Key2 10초): `nvs`, `secrets` 두 파티션을 지우고 `storage`의 `/presets.json`을 기본값으로 되돌린 뒤 재부팅한다. led-app의 `nvs_flash_erase()`와 같은 방식이다.
+공장 초기화(Key2 10초): `nvs`, `secrets` 두 파티션을 지우고 `storage`의 `/presets.json`을 기본값으로 되돌린 뒤 재부팅한다. `nvs_flash_erase()`로 지운다.
 
 ### 2.13 BLE GATT 규격 (`ble_prov`)
 
-led-app 규격을 기본으로 하고, MQTT 서비스(0xFF70) 대신 설정 서비스(0xFF80)를 둔다.
+Wi-Fi 서비스(0xFF50)와 기기 정보 서비스(0xFF60)에 설정 서비스(0xFF80)를 더한다.
 
-**led-app에서 실제로 검증된 범위**: SSID(0xFF51) → Password(0xFF52) → Status(0xFF53) → 완료(0xFF78) 흐름만 led-app 앱에서 쓰였다. Wi-Fi 스캔(0xFF54)과 기기 정보(0xFF60)는 led-app 펌웨어에만 구현돼 있고 앱은 쓴 적이 없다(앱은 휴대폰 `wifi_scan`으로 스캔, Android 전용). 새 앱은 iOS 지원을 위해 0xFF54를 반드시 쓰므로 **Phase 2 신규 검증 대상**이다.
+**검증 범위**: Wi-Fi 스캔(0xFF54)과 기기 정보(0xFF60)는 새로 검증해야 한다. 휴대폰 쪽 Wi-Fi 스캔(`wifi_scan`)은 Android 전용이라, 앱은 iOS 지원을 위해 0xFF54를 반드시 쓴다. 그래서 **Phase 2 신규 검증 대상**이다.
 
 #### 광고와 식별자
 
@@ -514,7 +512,7 @@ led-app 규격을 기본으로 하고, MQTT 서비스(0xFF70) 대신 설정 서�
 | | Command TX | `0xFF82` | Notify | 명령 응답 조각 |
 | | Provisioning complete | `0xFF88` | Write(암호화) | `0x01` (아래 커밋 규칙) |
 
-앱은 **쓰기 전에 0xFF53, 0xFF54, 0xFF82 알림을 먼저 켠다**(led-app은 비밀번호를 쓴 뒤 알림을 켜서 초기 상태를 놓칠 수 있었다). UUID는 문자열 포함 여부가 아니라 `Guid` 동등 비교로 찾는다.
+앱은 **쓰기 전에 0xFF53, 0xFF54, 0xFF82 알림을 먼저 켠다**(비밀번호를 쓴 뒤 알림을 켜면 초기 상태를 놓칠 수 있다). UUID는 문자열 포함 여부가 아니라 `Guid` 동등 비교로 찾는다.
 
 #### Wi-Fi 상태 코드 (0xFF53)
 
@@ -527,7 +525,7 @@ led-app 규격을 기본으로 하고, MQTT 서비스(0xFF70) 대신 설정 서�
 | 4 | 인증 실패 (비밀번호 오류) | ✅ |
 | 5 | 시간 초과 | ✅ |
 
-규칙 (led-app에서는 상태가 두 곳에서 보내져 "인증 실패"가 "시간 초과"로 덮일 수 있었다):
+규칙 (상태를 두 곳에서 보내면 "인증 실패"가 "시간 초과"로 덮일 수 있다):
 - 비밀번호를 한 번 쓸 때마다 **종료 상태(2–5)는 정확히 한 번만** 보낸다. 처음 정해진 종료 사유가 우선한다.
 - 시간 제한은 20초 하나로 통일한다.
 - 끊김 사유 → 상태 매핑: `NO_AP_FOUND`(201)와 IDF 5.x의 2xx 계열(`NO_AP_FOUND_W_COMPATIBLE_SECURITY` 등) → 3. `AUTH_FAIL`(202), `4WAY_HANDSHAKE_TIMEOUT`(15), `HANDSHAKE_TIMEOUT`(204), `MIC_FAILURE`, `CONNECTION_FAIL` → 4. 20초 안에 IP를 못 받으면 → 5.
@@ -536,7 +534,7 @@ led-app 규격을 기본으로 하고, MQTT 서비스(0xFF70) 대신 설정 서�
 #### Wi-Fi 스캔 (0xFF54)
 
 - 앱이 아무 값이나 쓰면 기기가 **GATT 콜백 밖의 작업 태스크**에서 스캔한다.
-- 알림 순서: 개수 1바이트(0–20, `0xFF`는 스캔 실패) → AP마다 알림 1회(34바이트, led-app과 같은 크기).
+- 알림 순서: 개수 1바이트(0–20, `0xFF`는 스캔 실패) → AP마다 알림 1회(34바이트).
 - AP 항목: SSID(UTF-8, 32바이트, 남는 자리는 0) + RSSI(1B, 실제 값 + 128) + 보안 방식(1B, 아래 표). 같은 SSID는 신호가 가장 센 것 하나만 보낸다. 숨김 SSID는 제외한다.
 
 | 보안 값 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 255 |
@@ -589,7 +587,7 @@ IDF의 `wifi_auth_mode_t` 숫자를 그대로 보내지 않는다(IDF 버전마�
 
 #### 저장 시점과 완료(0xFF88) 규칙
 
-led-app의 완료 처리는 이번 연결에서 Wi-Fi를 바꿨는지 확인하지 않고 임시 SSID·비밀번호를 저장한다. 그래서 키만 바꾸고 완료를 보내면 **저장된 Wi-Fi가 빈 값으로 덮어써진다.** 이 프로젝트에서는 다음 규칙을 따른다.
+완료 처리에서 이번 연결에 Wi-Fi를 바꿨는지 확인하지 않고 임시 SSID·비밀번호를 저장하면, 키만 바꾸고 완료를 보냈을 때 **저장된 Wi-Fi가 빈 값으로 덮어써진다.** 이 프로젝트에서는 다음 규칙을 따른다.
 
 | 동작 | 저장 시점 |
 |:--|:--|
@@ -691,7 +689,7 @@ BLE 창이 필요한 작업: 첫 설정, Wi-Fi 변경, 비밀값 쓰기(OpenAI �
 
 #### 버튼 하드웨어
 
-이 보드의 버튼은 Key1/Key2/Key3 세 개이고, GPIO가 아니라 **TCA9555 확장 칩 EXIO 9/10/11**에 연결돼 있다(액티브 로우, 10kΩ 풀업). TCA9555의 인터럽트 핀은 ESP32에 연결되지 않았으므로 ISR을 쓸 수 없고, **20ms마다 I2C로 입력 레지스터를 읽는다**(led-app의 ISR 방식은 이 보드에 맞지 않음). 디바운스는 연속 2회(40ms) 같은 값일 때 확정한다. BOOT(GPIO0)는 누른 채 전원을 켜면 다운로드 모드가 되므로 런타임 입력으로 쓰지 않는다.
+이 보드의 버튼은 Key1/Key2/Key3 세 개이고, GPIO가 아니라 **TCA9555 확장 칩 EXIO 9/10/11**에 연결돼 있다(액티브 로우, 10kΩ 풀업). TCA9555의 인터럽트 핀은 ESP32에 연결되지 않았으므로 ISR을 쓸 수 없고, **20ms마다 I2C로 입력 레지스터를 읽는다**(버튼 ISR 방식은 이 보드에 맞지 않음). 디바운스는 연속 2회(40ms) 같은 값일 때 확정한다. BOOT(GPIO0)는 누른 채 전원을 켜면 다운로드 모드가 되므로 런타임 입력으로 쓰지 않는다.
 
 | 버튼 | 위치 | 역할 |
 |:--|:--|:--|
@@ -773,7 +771,7 @@ CONFIG_SR_WN_WN9_JARVIS_TTS=y
 CONFIG_SR_WN_WN9_COMPUTER_TTS=y
 # 비밀값 평문 NVS: 암호화 끔 (켜두면 HMAC 키가 자동으로 eFuse에 기록됨)
 CONFIG_NVS_ENCRYPTION=n
-# BLE (led-app 기준 + 보안)
+# BLE (커스텀 GATT + 보안)
 CONFIG_BT_ENABLED=y
 CONFIG_BT_NIMBLE_ENABLED=y
 CONFIG_BT_NIMBLE_MAX_CONNECTIONS=1
@@ -903,35 +901,35 @@ flowchart TD
 - 음성으로도 바꿀 수 있다: "내 위치는 ○○동이야" → `set_location` 툴.
 - 펌웨어의 시간대 표(`assistant.c` `TIMEZONES`)에 없는 IANA 이름은 `INVALID_ARG`. 앱은 표에 없는 시간대면 `Asia/Seoul`/`UTC` 중 가까운 것을 고르라고 안내한다. 표에 있는 것: Asia/Seoul·Tokyo·Shanghai·Singapore, UTC, Europe/London·Berlin, America/New_York·Chicago·Denver·Los_Angeles, Australia/Sydney.
 
-### 3.1 기술 스택 (led-app과 같은 메이저 버전 유지)
+### 3.1 기술 스택 (메이저 버전 고정)
 
-led-app의 `pubspec.lock` 기준 버전으로 시작한다(Dart ≥3.10.4, Flutter ≥3.38.4). 메이저 버전을 올리면(flutter_bloc 9, get_it 8 등) led-app 코드를 옮길 때 API 차이가 생기므로, 두 앱을 함께 올릴 때만 올린다.
+아래 표의 메이저 버전으로 고정한다(Dart ≥3.10.4, Flutter ≥3.38.4). 메이저 버전을 올리면(flutter_bloc 9, get_it 8 등) API가 바뀌므로, 책을 따라 하는 동안에는 올리지 않는다.
 
-| 영역 | 패키지 | 버전 | led-app 대비 |
+| 영역 | 패키지 | 버전 | 비고 |
 |:--|:--|:--|:--|
-| 상태관리 | `flutter_bloc`, `equatable` | ^8.1.6, ^2.0.5 | 동일 |
-| DI | `get_it` (`sl`) | ^7.7.0 | 동일 |
-| 결과 타입 | `dartz` `Either<Failure, T>` | ^0.10.1 | 동일 (유지보수가 멈춘 패키지임을 인지) |
-| HTTP | `dio` | ^5.x | 동일. 단 `ApiClient`는 기기별 인스턴스(3.2절) |
-| WebSocket | `web_socket_channel` (`IOWebSocketChannel`) | 최신 | 신규 (MQTT 대체). 헤더로 토큰 전송 |
-| BLE | `flutter_blue_plus` | ^1.36.8 | 동일. 2.x는 `connect()` API와 라이선스 조건이 바뀌었으므로 확인 후 결정(Q6) |
-| 권한 | `permission_handler` | ^11.x | 동일 |
-| 저장 | `shared_preferences`, `flutter_secure_storage` | led-app과 동일 | 동일 |
-| 다국어 | `flutter_localizations`, `intl`, ARB(ko, en) | | 동일. 템플릿은 `app_ko.arb` |
-| mDNS | `nsd` | 최신 | 신규. `multicast_dns`는 iOS에서 Apple의 multicast entitlement가 필요하므로 쓰지 않는다 |
-| OAuth | `flutter_appauth` | 최신 | 신규 (Spotify PKCE) |
-| 파일 선택 | `file_picker` | 최신 | 신규 (OTA `.bin`) |
-| 미리듣기 | `just_audio` | 최신 | 신규, P2 (RAD-10) |
-| 외부 링크 | `url_launcher` | ^6.x | 동일 (BotFather·t.me 안내) |
-| 테스트 | `bloc_test`, `mocktail` | ^9.1.7, ^1.0.5 | led-app은 선언만 있고 단위 테스트 0개(`test/widget_test.dart`는 빈 테스트). 새 앱에서 처음 실제로 쓴다 |
-| 제거 | `supabase_flutter`, `firebase_*`, `flutter_local_notifications`, `google_sign_in`, `kakao_*`, `app_links`, `mqtt_client`, `wifi_scan`, `mobile_scanner`, `provider`(led-app에 의존성만 있고 사용처 없음) | | 백엔드·QR 없음 |
+| 상태관리 | `flutter_bloc`, `equatable` | ^8.1.6, ^2.0.5 | |
+| DI | `get_it` (`sl`) | ^7.7.0 | |
+| 결과 타입 | `dartz` `Either<Failure, T>` | ^0.10.1 | 유지보수가 멈춘 패키지임을 인지 |
+| HTTP | `dio` | ^5.x | `ApiClient`는 기기별 인스턴스(3.2절) |
+| WebSocket | `web_socket_channel` (`IOWebSocketChannel`) | 최신 | 헤더로 토큰 전송 |
+| BLE | `flutter_blue_plus` | ^1.36.8 | 2.x는 `connect()` API와 라이선스 조건이 바뀌었으므로 확인 후 결정(Q6) |
+| 권한 | `permission_handler` | ^11.x | |
+| 저장 | `shared_preferences`, `flutter_secure_storage` | 최신 | |
+| 다국어 | `flutter_localizations`, `intl`, ARB(ko, en) | | 템플릿은 `app_ko.arb` |
+| mDNS | `nsd` | 최신 | `multicast_dns`는 iOS에서 Apple의 multicast entitlement가 필요하므로 쓰지 않는다 |
+| OAuth | `flutter_appauth` | 최신 | Spotify PKCE |
+| 파일 선택 | `file_picker` | 최신 | OTA `.bin` |
+| 미리듣기 | `just_audio` | 최신 | P2 (RAD-10) |
+| 외부 링크 | `url_launcher` | ^6.x | BotFather·t.me 안내 |
+| 테스트 | `bloc_test`, `mocktail` | ^9.1.7, ^1.0.5 | BLoC마다 단위 테스트를 둔다(3.3절) |
+| 쓰지 않음 | `supabase_flutter`, `firebase_*`, `flutter_local_notifications`, `google_sign_in`, `kakao_*`, `app_links`, `mqtt_client`, `wifi_scan`, `mobile_scanner`, `provider` | | 백엔드·QR 없음 |
 
 ### 3.2 폴더 구조
 
 ```
 lib/
   main.dart
-  app.dart                       MultiBlocProvider + routes (led-app 방식)
+  app.dart                       MultiBlocProvider + routes
   injection_container.dart       sl 등록 (Bloc=Factory, Repo/DataSource=LazySingleton.
                                  예외: 앱 전역 상태 SettingsCubit·DeviceSelectionCubit은 LazySingleton + BlocProvider.value)
   core/
@@ -939,9 +937,9 @@ lib/
       ble_protocol.dart          ★ 펌웨어 2.13절과 1:1 일치하는 유일한 BLE 상수 파일
       api_paths.dart             LAN API 경로
       spotify_constants.dart     redirect URI, scope (client_id는 상수가 아님. 사용자 입력)
-    errors/                      failures.dart, exceptions.dart, error_localizer.dart (led-app 방식)
+    errors/                      failures.dart, exceptions.dart, error_localizer.dart
                                  신규: DeviceApiException, DeviceTimeoutException, DeviceFailure.
-                                 모든 Failure는 errorKey를 반드시 채운다 (led-app은 비워 둬서 현지화가 안 됨)
+                                 모든 Failure는 errorKey를 반드시 채운다 (비워 두면 현지화가 안 됨)
     network/
       device_api_client.dart     기기별 Dio 인스턴스: DeviceApiClientFactory.forDevice(id).
                                  baseUrl·토큰을 기기 단위로 묶는다. refresh 인터셉터 없음.
@@ -960,7 +958,7 @@ lib/
                                      LazySingleton. 선택된 기기 하나에만 연결, 기기가 바뀌면 다시 연결
     repository/
       guard.dart                 Exception → Failure 공통 변환 (try/catch 반복 제거)
-    settings/settings_cubit.dart 테마, 언어 (led-app 방식. 기본 언어는 시스템 언어, 지원하지 않으면 ko)
+    settings/settings_cubit.dart 테마, 언어 (기본 언어는 시스템 언어, 지원하지 않으면 ko)
     theme/, widgets/
   features/
     devices/        기기 목록(로컬 저장, 식별자 = 0xFF61 STA MAC), 선택, 상태 카드, 토큰 저장 위임
@@ -975,7 +973,7 @@ lib/
   l10n/             app_ko.arb, app_en.arb
 ```
 
-각 기능은 led-app과 같은 계층을 갖는다.
+각 기능은 같은 계층을 갖는다.
 
 ```
 features/<name>/
@@ -988,19 +986,19 @@ features/<name>/
   presentation/pages/, presentation/widgets/
 ```
 
-`domain/usecases`는 검증 로직이 있을 때만 만든다(led-app의 `Login`처럼). 단순 전달이면 BLoC이 레포지토리를 직접 호출한다. led-app도 실제로는 이렇게 쓰고 있다.
+`domain/usecases`는 검증 로직이 있을 때만 만든다. 단순 전달이면 BLoC이 레포지토리를 직접 호출한다.
 
-BLoC 수명: 기능 BLoC는 앱 루트가 아니라 **페이지 단위 `BlocProvider`**로 만든다(led-app은 모든 BLoC을 루트에서 만들고 `app.dart`가 1,172줄이 됨). WebSocket 이벤트가 필요한 BLoC은 생성자에서 `DeviceEventService` 스트림을 구독하고 `close()`에서 취소한다(led-app `DeviceBloc` 방식). 이벤트 담당: `tg_paired`·`tg_status` → TelegramBloc, `ota_progress` → SystemBloc, `wake_test` → AudioBloc, `voice_state`·`media_state`·`volume`·`tg_message`(읽지 않은 수) → HomeBloc.
+BLoC 수명: 기능 BLoC는 앱 루트가 아니라 **페이지 단위 `BlocProvider`**로 만든다(모든 BLoC을 루트에서 만들면 `app.dart`가 천 줄을 넘기 쉽다). WebSocket 이벤트가 필요한 BLoC은 생성자에서 `DeviceEventService` 스트림을 구독하고 `close()`에서 취소한다. 이벤트 담당: `tg_paired`·`tg_status` → TelegramBloc, `ota_progress` → SystemBloc, `wake_test` → AudioBloc, `voice_state`·`media_state`·`volume`·`tg_message`(읽지 않은 수) → HomeBloc.
 
-### 3.3 led-app 대비 개선 규칙
+### 3.3 앱 구조 규칙
 
-| led-app 현황 | 이 프로젝트 규칙 |
+| 흔히 생기는 문제 | 이 프로젝트 규칙 |
 |:--|:--|
-| 프로비저닝 페이지가 BLE를 직접 다룸 (`wifi_config_page.dart` 1,218줄, `ble_scan_page.dart` 1,100줄) | BLE는 `core/ble` + `ProvisioningBleDataSource`로 분리, 페이지는 `ProvisioningBloc` 상태만 그림. 페이지는 300줄 이하 목표 |
-| `ble_constants.dart`(128bit UUID, `NANU_LED_`)는 어디서도 쓰이지 않는 죽은 코드이고, 실제 UUID는 페이지에 하드코딩(문자열 포함 비교)됨. SSID·비밀번호를 UTF-16 `codeUnits`로 써서 한글 SSID가 깨짐 | `ble_protocol.dart` 하나만 둔다. 펌웨어 `app_config.h`와 값이 같아야 하며, 설계서 2.13절이 기준 |
+| 화면 파일이 BLE를 직접 다뤄 한 파일이 1,000줄을 넘김 | BLE는 `core/ble` + `ProvisioningBleDataSource`로 분리, 페이지는 `ProvisioningBloc` 상태만 그림. 페이지는 300줄 이하 목표 |
+| UUID가 화면마다 하드코딩되고, SSID·비밀번호를 UTF-16 `codeUnits`로 써서 한글 SSID가 깨짐 | `ble_protocol.dart` 하나만 둔다. 펌웨어 `app_config.h`와 값이 같아야 하며, 설계서 2.13절이 기준 |
 | 레포지토리 메서드마다 같은 try/catch 반복 | `guard(() => ...)` 헬퍼로 통일 |
-| 단위 테스트 0개 (통합 테스트 4개뿐) | BLoC마다 `bloc_test` 단위 테스트, 데이터소스는 `mocktail` |
-| `ErrorKeys`에 서버·로그인 키 다수, Failure에 errorKey를 안 채워 현지화가 동작하지 않음 | BLE·LAN·기기 오류 키로 재구성 (`errorDeviceUnreachable`, `errorDeviceUnauthorized`, `errorBleBondFailed`, `errorWifiAuth` 등) |
+| 단위 테스트 없이 통합 테스트에만 기댐 | BLoC마다 `bloc_test` 단위 테스트, 데이터소스는 `mocktail` |
+| Failure에 errorKey를 안 채워 현지화가 동작하지 않음 | BLE·LAN·기기 오류 키로 재구성 (`errorDeviceUnreachable`, `errorDeviceUnauthorized`, `errorBleBondFailed`, `errorWifiAuth` 등) |
 
 `guard` 예시:
 ```dart
@@ -1009,7 +1007,7 @@ Future<Either<Failure, T>> guard<T>(Future<T> Function() run) async {
     return Right(await run());
   } on DeviceApiException catch (e) {          // 신규 정의
     return Left(DeviceFailure.fromStatus(e.code, e.message));
-  } on DeviceTimeoutException {                 // 신규. led-app TimeoutException은 dart:async와 이름이 겹쳐 개명
+  } on DeviceTimeoutException {                 // 신규. TimeoutException이라 하면 dart:async와 이름이 겹쳐 개명
     return const Left(DeviceFailure.timeout());
   } on TimeoutException {                       // dart:async (.timeout()이 던짐)
     return const Left(DeviceFailure.timeout());
@@ -1091,10 +1089,10 @@ flowchart LR
 | | `NSBonjourServices` | `_aispeaker._tcp` (없으면 mDNS 검색이 실패한다) |
 | | `NSAppTransportSecurity` → `NSAllowsLocalNetworking` | `true` (로컬 IP로 평문 HTTP 허용) |
 | | `CFBundleURLSchemes` | Spotify 리다이렉트 스킴 (`flutter_appauth`) |
-| | 위치 권한 문구 | 필요 없음 (iOS BLE 검색은 위치 권한을 요구하지 않음). led-app의 위치 문구는 옮기지 않는다 |
+| | 위치 권한 문구 | 필요 없음 (iOS BLE 검색은 위치 권한을 요구하지 않음) |
 | Android `AndroidManifest.xml` | Android 12+ | `BLUETOOTH_SCAN`(`neverForLocation`), `BLUETOOTH_CONNECT`만 요청 |
 | | Android 11 이하 | `BLUETOOTH`, `BLUETOOTH_ADMIN`(`maxSdkVersion=30`), `ACCESS_FINE_LOCATION`(`maxSdkVersion=30`) |
-| | 평문 HTTP | `network_security_config.xml` base-config `cleartextTrafficPermitted="true"` (led-app 그대로. 사설 IP 대역은 domain-config로 표현할 수 없음) |
+| | 평문 HTTP | `network_security_config.xml` base-config `cleartextTrafficPermitted="true"` (사설 IP 대역은 domain-config로 표현할 수 없음) |
 | | Spotify 리다이렉트 | `build.gradle`의 `manifestPlaceholders["appAuthRedirectScheme"]` |
 | 공통 | 재설치 처리 | iOS Keychain(`flutter_secure_storage`)은 앱을 지워도 남는다. 첫 실행 표시(SharedPreferences)가 없으면 secure storage를 비운다 |
 
@@ -1104,7 +1102,7 @@ flowchart LR
 
 ## 4. 앱과 펌웨어가 공유하는 규격
 
-두 저장소가 따로 움직이면 led-app처럼 상수가 어긋난다. 그래서 다음 규칙을 둔다.
+두 저장소가 따로 움직이면 상수가 어긋나기 쉽다. 그래서 다음 규칙을 둔다.
 
 - **이 설계서의 2.13절(BLE)과 2.14절(LAN)이 유일한 기준이다.** 규격을 바꿀 때는 설계서를 먼저 고친다.
 - 펌웨어 `app_config.h`의 UUID·이름 상수와 앱 `ble_protocol.dart`·`api_paths.dart`를 같은 PR에서 함께 바꾼다.

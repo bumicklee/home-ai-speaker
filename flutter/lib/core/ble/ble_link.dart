@@ -186,7 +186,7 @@ class BleLink implements BleCommandTransport {
     _cmdTx = find(BleProtocol.svcConfig, BleProtocol.chrCmdTx);
     _provDone = find(BleProtocol.svcConfig, BleProtocol.chrProvDone);
 
-    // 쓰기 전에 알림부터 켠다 (led-app은 나중에 켜서 초기 상태를 놓쳤다)
+    // 쓰기 전에 알림부터 켠다 (나중에 켜면 초기 상태를 놓친다)
     _subs.add(_status.onValueReceived.listen((v) {
       final s = v.isEmpty ? null : WifiProvStatus.fromCode(v[0]);
       if (s != null) _statusController.add(s);
@@ -238,7 +238,7 @@ class BleLink implements BleCommandTransport {
   /// SSID → 비밀번호를 쓰고 첫 종료 상태(2–5)를 결과로 준다. 기기 제한 20초 + 여유
   Future<WifiProvStatus> provisionWifi(String ssid, String password,
       {Duration timeout = const Duration(seconds: 30)}) async {
-    final ssidBytes = utf8.encode(ssid); // led-app은 UTF-16 codeUnits라 한글 SSID가 깨졌다
+    final ssidBytes = utf8.encode(ssid); // UTF-16 codeUnits로 쓰면 한글 SSID가 깨진다
     final pwBytes = utf8.encode(password);
     if (ssidBytes.isEmpty || ssidBytes.length > BleProtocol.ssidMaxBytes || pwBytes.length > BleProtocol.passwordMaxBytes) {
       throw const BleException(BleErrorCode.tooLarge, 'ssid/password length');

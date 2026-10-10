@@ -1,5 +1,5 @@
 /*
- * led-app/firmware/main/wifi_manager.c 이식. 바뀐 점:
+ * Wi-Fi 스테이션 관리. 설계 요점:
  * - ble_prov·mqtt 헤더를 include하지 않는다 (상위 모듈은 app_events로 알림 받음)
  * - Wi-Fi 정보는 settings 모듈에서 읽는다
  * - 끊김 사유 매핑에 IDF 5.x 2xx 계열(NO_AP_FOUND_W_COMPATIBLE_SECURITY 등)을 넣었다
@@ -103,7 +103,7 @@ bool net_is_testing(void)
     return s_testing;
 }
 
-/* 시도 한 번에 종료 상태는 한 번만 보낸다. 처음 정해진 사유가 우선한다 (led-app 결함 수정) */
+/* 시도 한 번에 종료 상태는 한 번만 보낸다. 처음 정해진 사유가 우선한다 (두 번 보내면 앱이 엉뚱한 안내를 한다) */
 static void report_test(net_wifi_status_t status)
 {
     net_test_cb_t cb = NULL;

@@ -4,7 +4,7 @@
  * 작업 태스크가 하는 일: NimBLE 올리기·내리기, Wi-Fi 스캔, 새 Wi-Fi 시험 연결, 명령 처리,
  * 0xFF88 확정, 창 시간 관리. GATT 콜백은 여기에 일감을 넣고 바로 돌아간다.
  *
- * led-app에서 고친 것:
+ * 흔한 결함을 막는 규칙:
  * - 완료(0xFF88) 때 Wi-Fi를 무조건 저장하던 결함: 이번 연결에서 상태 2(성공)에 도달했을 때만 저장
  * - 상태를 두 곳에서 보내 "인증 실패"가 "시간 초과"로 덮이던 결함: 시도마다 종료 상태 한 번 (net이 보장)
  */
@@ -30,7 +30,7 @@ static const char *TAG = "BLE_PROV";
 
 #define SCAN_MAX       20
 #define SCAN_FETCH     32
-#define SCAN_ENTRY_LEN 34      /* SSID 32 + RSSI 1 + 보안 1 (led-app과 같은 크기) */
+#define SCAN_ENTRY_LEN 34      /* SSID 32 + RSSI 1 + 보안 1 */
 #define SCAN_FAILED    0xFF
 
 static QueueHandle_t s_jobs;
@@ -233,7 +233,7 @@ static void handle_prov_done(void)
     bool was_provisioned = settings_is_provisioned();
     bool reboot = false;
     if (s_wifi_ok) {
-        /* 이번 연결에서 성공한 Wi-Fi만 저장한다 (led-app의 덮어쓰기 결함 수정) */
+        /* 이번 연결에서 성공한 Wi-Fi만 저장한다 (빈 Wi-Fi 정보로 덮어쓰지 않는다) */
         if (settings_set_wifi(g_ble.ssid, g_ble.password) == ESP_OK) {
             net_end_test(true);
             reboot = true;

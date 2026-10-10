@@ -201,14 +201,14 @@
 
 | ID | 기능 | 상세 동작 | 우선 | Phase | 완료 기준 |
 |:--|:--|:--|:--|:--|:--|
-| APP-01 | 권한 요청 | Android 12+: `BLUETOOTH_SCAN`·`BLUETOOTH_CONNECT`만. Android 11 이하: 위치. iOS: Bluetooth, 로컬 네트워크(첫 mDNS·HTTP 때 시스템 팝업). 설계서 3.6절 | P0 | 2 | 거부 시 설정 화면 안내 (led-app 방식) |
+| APP-01 | 권한 요청 | Android 12+: `BLUETOOTH_SCAN`·`BLUETOOTH_CONNECT`만. Android 11 이하: 위치. iOS: Bluetooth, 로컬 네트워크(첫 mDNS·HTTP 때 시스템 팝업). 설계서 3.6절 | P0 | 2 | 거부 시 설정 화면 안내 |
 | APP-02 | 기기 목록 | 등록 기기를 휴대폰에 저장(0xFF61로 읽은 STA MAC, 이름, 마지막 IP). BLE `remoteId`는 쓰지 않음(iOS는 UUID). 여러 대 지원 | P0 | 2 | |
 | APP-03 | 기기 찾기 | mDNS로 검색해 IP 갱신. 실패 시 마지막 IP로 시도 | P0 | 2 | IP가 바뀌어도 자동으로 다시 찾음 |
 | APP-04 | 홈 화면 | 연결 상태, 대화 상태, 지금 재생, 볼륨, 읽지 않은 Telegram 수, 빠른 동작(대화 시작, 재생/정지) | P0 | 2 | |
 | APP-05 | 실시간 갱신 | WebSocket 이벤트로 상태 반영. 끊기면 자동 재연결(1→30초) | P0 | 2 | |
 | APP-06 | 연결 불가 안내 | 같은 Wi-Fi인지 확인 안내, BLE 재설정으로 이동 버튼 | P0 | 2 | |
 | APP-07 | 다국어 | 한국어(기본), 영어. ARB 파일 | P0 | 2 | 모든 문구가 ARB에 있음 |
-| APP-08 | 테마 | 시스템/라이트/다크 (led-app `SettingsCubit`) | P1 | 2 | |
+| APP-08 | 테마 | 시스템/라이트/다크 (`SettingsCubit`) | P1 | 2 | |
 | APP-09 | 오류 메시지 | `ErrorKeys` → 현지화 메시지. 원인별 다음 행동 안내 | P0 | 2 | |
 | APP-10 | 비밀값 화면 | OpenAI 키를 "저장됨/없음"으로만 표시, 교체(BLE)·삭제(LAN). Telegram·Spotify 상태는 각 기능 화면이 담당하고 여기서는 링크 | P0 | 2 | 앱 화면 어디에도 키 원문이 나타나지 않음 |
 | APP-11 | 오프라인 모드 | 기기와 연결되지 않아도 저장된 기기 목록과 안내는 표시 | P1 | 2 | |
@@ -277,5 +277,5 @@
 | 안정성 | 24시간 연속 동작 중 재부팅 0회. 공유기 재부팅 후 자동 복구 |
 | 메모리 | 내부 RAM 여유 40KB 이상: 대화 + 음악(Telegram 폴링 정지), 음악 + Telegram, BLE 창 + 음악 |
 | 비용 | 대화 1회 최대 10분, 무응답 60초 종료, 자동 읽기 기본 끔 |
-| 유지보수 | 앱은 led-app 구조(Clean Architecture + BLoC + get_it) 준수. BLE·LAN 규격은 설계서가 유일한 기준 |
+| 유지보수 | 앱은 설계서 3.3절 구조(Clean Architecture + BLoC + get_it) 준수. BLE·LAN 규격은 설계서가 유일한 기준 |
 | 테스트 | 앱 BLoC 단위 테스트, 펌웨어 호스트 단위 테스트(종료 문구, 위임 파서, 설정 검증 등 순수 로직) |

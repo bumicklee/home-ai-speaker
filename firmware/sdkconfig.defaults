@@ -46,7 +46,7 @@ CONFIG_SR_WN_WN9_COMPUTER_TTS=y
 # 비밀값 평문 NVS: 암호화 끔 (켜두면 HMAC 키가 자동으로 eFuse에 기록됨)
 CONFIG_NVS_ENCRYPTION=n
 
-# BLE (led-app 기준 + 보안). 본딩을 저장하지 않으므로 NVS_PERSIST는 기본값(n)
+# BLE (커스텀 GATT + 보안). 본딩을 저장하지 않으므로 NVS_PERSIST는 기본값(n)
 CONFIG_BT_ENABLED=y
 CONFIG_BT_NIMBLE_ENABLED=y
 CONFIG_BT_NIMBLE_MAX_CONNECTIONS=1

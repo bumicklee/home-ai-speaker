@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// 앱 전역 설정: 테마, 언어 (led-app 방식). 기본 언어는 시스템 언어, 지원하지 않으면 ko.
+/// 앱 전역 설정: 테마, 언어. 기본 언어는 시스템 언어, 지원하지 않으면 ko.
 class SettingsState extends Equatable {
   const SettingsState({this.themeMode = ThemeMode.system, this.locale});
 

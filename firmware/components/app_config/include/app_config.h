@@ -1,6 +1,6 @@
 /**
  * @file app_config.h
- * @brief 버전, 타이밍, 식별자 상수 (led-app 방식 중앙 설정)
+ * @brief 버전, 타이밍, 식별자 상수 (한곳에 모은 설정)
  *
  * BLE·LAN 규격 상수는 설계서 2.13·2.14절이 기준이다. 바꿀 때는 앱의
  * ble_protocol.dart·api_paths.dart와 같은 PR에서 함께 바꾼다.
